@@ -1,7 +1,7 @@
-,通算スコア,,平均スコア,,平均順位,,トップ率,,ラス率,,アガリ率,,放銃率,,平均アガリ点,,平均放銃点,,ふっとび率,,ふっとばし率,,リーチ率,,副露率,,リーチ成功率,,副露成功率,,ツモ率,,最大点数,
-相関,,,,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,
-1位,Player2,+81.3,Player2,+81.30,Player2,1.00 位,Player2,100.0%,Player2,0.0%,Player2,40.0%,Player1,0.0%,Player2,28000,Player1,0,Player1,0.0%,Player2,100.0%,全体,20.0%,Player3,10.0%,Player2,50.0%,Player3,100.0%,Player1,100.0%,全体,91300
-2位,Player3,+31.1,Player3,+31.10,Player3,2.00 位,全体,25.0%,Player3,0.0%,Player3,30.0%,全体,7.5%,全体,22310,Player2,-8000,Player2,0.0%,全体,25.0%,Player1,20.0%,Player4,10.0%,Player3,50.0%,全体,50.0%,Player4,100.0%,Player2,91300
-3位,全体,±0,全体,±0,全体,2.50 位,Player1,0.0%,Player4,0.0%,全体,25.0%,Player2,10.0%,Player3,20000,Player3,-8000,Player3,0.0%,Player1,0.0%,Player2,20.0%,全体,5.0%,Player4,50.0%,Player1,0.0%,全体,70.0%,Player3,51100
-4位,Player1,-15.0,Player1,-15.00,Player1,3.00 位,Player3,0.0%,全体,25.0%,Player1,20.0%,Player3,10.0%,Player4,18000,全体,-26667,全体,25.0%,Player3,0.0%,Player3,20.0%,Player1,0.0%,全体,37.5%,Player2,0.0%,Player3,66.7%,Player1,15000
-5位,Player4,-97.4,Player4,-97.40,Player4,4.00 位,Player4,0.0%,Player1,100.0%,Player4,10.0%,Player4,10.0%,Player1,16550,Player4,-64000,Player4,100.0%,Player4,0.0%,Player4,20.0%,Player2,0.0%,Player1,0.0%,Player4,0.0%,Player2,50.0%,Player4,0
+,通算スコア,,平均スコア,,平均順位,,トップ率,,ラス率,,連対率,,アガリ率,,放銃率,,平均アガリ点,,平均放銃点,,ふっとび率,,ふっとばし率,,リーチ率,,副露率,,リーチ成功率,,副露成功率,,ツモ率,,最大点数,
+相関,,,,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,,#DIV/0!,
+1位,Player2,+162.6,Player2,+81.30,Player2,1.00 位,Player2,100.0%,Player1,0.0%,Player2,100.0%,Player4,10.0%,Player2,10.0%,Player2,28000,Player4,-64000,Player4,100.0%,Player2,100.0%,全体,20.0%,Player3,10.0%,Player2,50.0%,Player3,100.0%,Player1,100.0%,全体,91300
+2位,Player3,+62.2,Player3,+31.10,Player3,2.00 位,全体,25.0%,Player2,0.0%,Player3,100.0%,Player1,20.0%,Player3,10.0%,全体,22310,全体,-26667,全体,25.0%,全体,25.0%,Player1,20.0%,Player4,10.0%,Player3,50.0%,全体,50.0%,Player4,100.0%,Player2,91300
+3位,全体,±0,全体,±0,全体,2.50 位,Player1,0.0%,Player3,0.0%,全体,50.0%,全体,25.0%,Player4,10.0%,Player3,20000,Player2,-8000,Player1,0.0%,Player1,0.0%,Player2,20.0%,全体,5.0%,Player4,50.0%,Player1,0.0%,全体,70.0%,Player3,51100
+4位,Player1,-30.0,Player1,-15.00,Player1,3.00 位,Player3,0.0%,全体,25.0%,Player1,0.0%,Player3,30.0%,全体,7.5%,Player4,18000,Player3,-8000,Player2,0.0%,Player3,0.0%,Player3,20.0%,Player1,0.0%,全体,37.5%,Player2,0.0%,Player3,66.7%,Player1,15000
+5位,Player4,-194.8,Player4,-97.40,Player4,4.00 位,Player4,0.0%,Player4,100.0%,Player4,0.0%,Player2,40.0%,Player1,0.0%,Player1,16550,Player1,0,Player3,0.0%,Player4,0.0%,Player4,20.0%,Player2,0.0%,Player1,0.0%,Player4,0.0%,Player2,50.0%,Player4,-57400
