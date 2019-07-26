@@ -130,7 +130,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // ルール
         if ($message_text == "ルール") {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("ルール") . ".txt?" . date("YmdHis");
+            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("ルール") . ".txt?" . date("YmdHis");
             $send_text = file_get_contents($fname);
 
             if ($send_text) {
@@ -147,7 +147,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // 大会
         if (preg_match("/大会 ?(.+)/", $message_text, $code)) {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("大会") . "/" . $code[1] . "/" . urlencode("概要") . ".txt?" . date("YmdHis");
+            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("大会") . "/" . $code[1] . "/" . urlencode("概要") . ".txt?" . date("YmdHis");
             $send_text = file_get_contents($fname);
 
             if ($send_text) {
@@ -164,7 +164,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // 相関係数
         if ($message_text == "相関") {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
+            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
             $myfname = "record/ランキング.csv?" . date("YmdHis");
 
             if (file_get_contents($fname)) {
@@ -272,8 +272,8 @@ if ($event_type == "follow" || $event_type == "join") {
             } else {
                 // 成績を送信
                 $send_text = $data[0][1] . "\n";
-                $send_text .= "【" . $data[1][0]  . "】" . $data[1][1]  . "\n";
-                $send_text .= "【" . $data[2][0]  . "】" . $data[2][1]  . "\n";
+                $send_text .= "【" . $data[1][0] . "】" . $data[1][1] . "\n";
+                $send_text .= "【" . $data[2][0] . "】" . $data[2][1] . "\n";
 
                 if ($message_text != "全体") {
                     $send_text .= "【" . $data[3][0]  . "】" . $data[3][1]  . "\n";
@@ -282,10 +282,10 @@ if ($event_type == "follow" || $event_type == "join") {
                     $send_text .= "【" . $data[6][0]  . "】" . $data[6][1]  . " / " . $data[6][2]  . "\n";
                     $send_text .= "【" . $data[7][0]  . "】" . $data[7][1]  . " / " . $data[7][2]  . "\n";
                     $send_text .= "【" . $data[8][0]  . "】" . $data[8][1]  . " / " . $data[8][2]  . "\n";
+                    $send_text .= "【" . $data[9][0]  . "】" . $data[9][1]  . " / " . $data[9][2]  . "\n";
+                    $send_text .= "【" . $data[10][0] . "】" . $data[10][1] . " / " . $data[10][2] . "\n";
                 }
 
-                $send_text .= "【" . $data[9][0]  . "】" . $data[9][1]  . " / " . $data[9][2]  . "\n";
-                $send_text .= "【" . $data[10][0] . "】" . $data[10][1] . " / " . $data[10][2] . "\n";
                 $send_text .= "【" . $data[11][0] . "】" . $data[11][1] . " / " . $data[11][2] . "\n";
                 $send_text .= "【" . $data[12][0] . "】" . $data[12][1] . " / " . $data[12][2] . "\n";
                 $send_text .= "【" . $data[13][0] . "】" . $data[13][1] . " / " . $data[13][2] . "\n";
@@ -295,17 +295,19 @@ if ($event_type == "follow" || $event_type == "join") {
                 $send_text .= "【" . $data[17][0] . "】" . $data[17][1] . " / " . $data[17][2] . "\n";
                 $send_text .= "【" . $data[18][0] . "】" . $data[18][1] . " / " . $data[18][2] . "\n";
                 $send_text .= "【" . $data[19][0] . "】" . $data[19][1] . " / " . $data[19][2] . "\n";
+                $send_text .= "【" . $data[20][0] . "】" . $data[20][1] . " / " . $data[20][2] . "\n";
+                $send_text .= "【" . $data[21][0] . "】" . $data[21][1] . " / " . $data[21][2] . "\n";
 
                 if ($message_text != "全体") {
-                    $send_text .= "【" . $data[20][0] . "】" . $data[20][1] . "\n";
-                    $send_text .= "【" . $data[21][0] . "】" . $data[21][1] . "\n";
+                    $send_text .= "【" . $data[22][0] . "】" . $data[22][1] . "\n";
+                    $send_text .= "【" . $data[23][0] . "】" . $data[23][1] . "\n";
                 }
 
-                $send_text .= "【" . $data[22][0] . "】" . $data[22][1] . "\n";
-                $send_text .= "【" . $data[23][0] . "】" . $data[23][1] . "\n";
                 $send_text .= "【" . $data[24][0] . "】" . $data[24][1] . "\n";
-                $send_text .= "【" . $data[25][0] . "】" . $data[25][1] . "\n";
-                $send_text .= "【" . $data[26][0] . "】" . $data[26][1] . " / " . $data[26][2];
+                $send_text .= "【" . $data[25][0] . "】" . $data[25[1] . "\n";
+                $send_text .= "【" . $data[26][0] . "】" . $data[26][1] . "\n";
+                $send_text .= "【" . $data[27][0] . "】" . $data[27][1] . "\n";
+                $send_text .= "【" . $data[28][0] . "】" . $data[28][1] . " / " . $data[28][2];
 
                 $messages = [
                     [
@@ -410,7 +412,7 @@ send:
         }
 
         // ランキング
-        $fname = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
+        $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
         $myfname = "record/ランキング.csv?" . date("YmdHis");
 
         if (file_get_contents($fname)) {
