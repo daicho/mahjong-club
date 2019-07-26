@@ -1,5 +1,5 @@
 <?php
-define("ACCESS_TOKEN", "p92VGjm5eJxJdzbz/cwIu3ErYj0pTf50tFV/ESKg2mLCHi0fHPvuPSaQ0pKXHspeB9tO+CK/7VPcjJpbPLZ61tZzAe6uq4HLBDmHY4+3YVAKI/BQcsuRbt5OISbA3AzUZV+gUZ7uOpADST8FR2L9HwdB04t89/1O/w1cDnyilFU=");
+define("ACCESS_TOKEN", "YPfl6Y7VyrAx9/M6Thd5kEDqA//aJTm10S0Cedm9VZV/LDNxlcMPHukoku09CL7/dY3xbapgIfqBhAkRpy+NjUFujOHU7h/DEdjE1xEiPnTCz0xz4Ie83EAAuBtJiHYmyFGCgHMW0/IH7s+Y9/aZFAdB04t89/1O/w1cDnyilFU=");
 define("USER_ID", "U370e9c2081a4b305e756946b5f6313a5");
 
 $rank_str = [
@@ -8,6 +8,7 @@ $rank_str = [
     "平均順位",
     "トップ率",
     "ラス率",
+    "連体率",
     "アガリ率",
     "放銃率",
     "平均アガリ点",
@@ -20,44 +21,6 @@ $rank_str = [
     "副露成功率",
     "ツモ率",
     "最大点数"
-];
-
-$unsei = [
-    [
-        "str" => "役満級",
-        "pckid" => 2,
-        "stkid" => 172
-    ],
-    [
-        "str" => "倍満級",
-        "pckid" => 2,
-        "stkid" => 164
-    ],
-    [
-        "str" => "満貫級",
-        "pckid" => 2,
-        "stkid" => 171
-    ],
-    [
-        "str" => "リーチのみ級",
-        "pckid" => 2,
-        "stkid" => 175
-    ],
-    [
-        "str" => "ノーテン級",
-        "pckid" => 2,
-        "stkid" => 525
-    ],
-    [
-        "str" => "ダブロン振り込み級",
-        "pckid" => 2,
-        "stkid" => 174
-    ],
-    [
-        "str" => "ふっとび級",
-        "pckid" => 2,
-        "stkid" => 173
-    ]
 ];
 
 // APIから送信されてきたJSONを取得
@@ -104,9 +67,8 @@ if ($event_type == "follow" || $event_type == "join") {
         "messages" => [
             [
                 "type" => "text",
-                "text" => "イーソー君だよ！\n" .
-                          "自分の名前を送信すると成績が見られるよ！\n" .
-                          "すべての機能を見るには「使い方」と送信してね！"
+                "text" => "自分の名前を送信すると成績が見られます\n" .
+                          "すべての機能を表示するには「使い方」と送信してください"
             ]
         ]
     ];
@@ -130,11 +92,11 @@ if ($event_type == "follow" || $event_type == "join") {
     if ($message_type == "text") {
         $message_text = $event->message->text;
 
-        if (strpos($message_text, "1st\n") !== false) {
-            $dirname = "麻雀同好会1st";
+        if (strpos($message_text, "3\n") !== false) {
+            $dirname = "三人麻雀";
             $message_text = str_replace("1st\n", "", $message_text);
         } else {
-            $dirname = "麻雀同好会2nd";
+            $dirname = "四人麻雀";
         }
 
         // 使い方
@@ -148,9 +110,6 @@ if ($event_type == "follow" || $event_type == "join") {
             $send_text .= "\n" . "(名前) 推移";
             $send_text .= "\n" . "(名前) (項目名)";
             $send_text .= "\n" . "使い方";
-            $send_text .= "\n" . "占って";
-            $send_text .= "\n" . "配牌";
-            $send_text .= "\n" . "清一色";
             $send_text .= "\n" . "ルール";
             $send_text .= "\n" . "大会 (番号)";
             $send_text .= "\n" . "相関";
@@ -203,62 +162,6 @@ if ($event_type == "follow" || $event_type == "join") {
             goto send;
         }
 
-        // 占って
-        if (preg_match("/(運勢|占|うらな)/", $message_text)) {
-            $unsei_rand = mt_rand(0, count($unsei) - 1);
-
-            $messages = [
-                [
-                    "type" => "text",
-                    "text" => "あなたの運勢は「" . $unsei[$unsei_rand]["str"] . "」です"
-                ],
-                [
-                    "type" => "sticker",
-                    "packageId" => $unsei[$unsei_rand]["pckid"],
-                    "stickerId" => $unsei[$unsei_rand]["stkid"]
-                ]
-            ];
-
-            goto send;
-        }
-
-        $haipai_flag = false;
-
-        // 配牌
-        if ($message_text == "配牌") {
-            $haipai_flag = true;
-            for ($i = 0; $i < 108; $i++)
-                $hai[] = $i / 4 + 1;
-        }
-
-        // 清一色
-        if ($message_text == "清一色" || $message_text == "チンイツ") {
-            $haipai_flag = true;
-            for ($i = 36; $i < 72; $i++)
-                $hai[] = $i / 4 + 1;
-        }
-
-        if ($haipai_flag) {
-            shuffle($hai);
-            $haipai = array_slice($hai, 0, 14);
-            sort($haipai);
-
-            $haipai_url = "https://lolipop-dp26251191.ssl-lolipop.jp/line/haipai.php?haipai=";
-
-            for ($i = 0; $i < 14; $i++)
-                $haipai_url .= sprintf("%03d", $haipai[$i]);
-
-            $messages = [
-                [
-                    "type" => "image",
-                    "originalContentUrl" => $haipai_url,
-                    "previewImageUrl" => $haipai_url
-                ]
-            ];
-
-            goto send;
-        }
-
         // 相関係数
         if ($message_text == "相関") {
             $fname = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
@@ -294,7 +197,7 @@ if ($event_type == "follow" || $event_type == "join") {
         }
 
         // 成績
-        $record = "https://raw.githubusercontent.com/daicho/mahjong/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/";
+        $record = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/";
         $name = str_replace([" 役", " 局別", " 起家", " 相性"], "", $message_text);
         $fname = $record . urlencode($name) . ".csv?" . date("YmdHis");
         $graph_score = $record . urlencode($message_text) . "-Score.png?" . date("YmdHis");
@@ -330,7 +233,7 @@ if ($event_type == "follow" || $event_type == "join") {
             } else if (strpos($message_text, "局別")) {
                 // 局別スコアを送信
                 $send_text = $data[0][1] . " 局別";
-                for ($i = 1; $i <= 6; $i++)
+                for ($i = 1; $i <= 8; $i++)
                     $send_text .= "\n【" . $data[$i][13] ."】" . $data[$i][14];
 
                 $messages = [
@@ -343,7 +246,7 @@ if ($event_type == "follow" || $event_type == "join") {
             } else if (strpos($message_text, "起家")) {
                 // 起家別スコアを送信
                 $send_text = $data[0][1] . " 起家";
-                for ($i = 9; $i <= 11; $i++)
+                for ($i = 11; $i <= 14; $i++)
                     $send_text .= "\n【" . $data[$i][13] ."】" . $data[$i][14] . " (" . $data[$i][15] . ")";
 
                 $messages = [
@@ -356,7 +259,7 @@ if ($event_type == "follow" || $event_type == "join") {
             } else if (strpos($message_text, "相性")) {
                 // 相性を送信
                 $send_text = $data[0][1] . " 相性";
-                for ($i = 14; $data[$i][13] != ""; $i++)
+                for ($i = 17; $data[$i][13] != ""; $i++)
                     $send_text .= "\n【" . $data[$i][13] ."】" . $data[$i][14] . " (" . $data[$i][15] . ")";
 
                 $messages = [
