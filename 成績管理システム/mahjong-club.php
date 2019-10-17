@@ -304,7 +304,7 @@ if ($event_type == "follow" || $event_type == "join") {
                 }
 
                 $send_text .= "【" . $data[24][0] . "】" . $data[24][1] . "\n";
-                $send_text .= "【" . $data[25][0] . "】" . $data[25[1] . "\n";
+                $send_text .= "【" . $data[25][0] . "】" . $data[25][1] . "\n";
                 $send_text .= "【" . $data[26][0] . "】" . $data[26][1] . "\n";
                 $send_text .= "【" . $data[27][0] . "】" . $data[27][1] . "\n";
                 $send_text .= "【" . $data[28][0] . "】" . $data[28][1] . " / " . $data[28][2];
