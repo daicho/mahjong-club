@@ -92,12 +92,7 @@ if ($event_type == "follow" || $event_type == "join") {
     if ($message_type == "text") {
         $message_text = $event->message->text;
 
-        if (strpos($message_text, "3\n") !== false) {
-            $dirname = "三人麻雀";
-            $message_text = str_replace("1st\n", "", $message_text);
-        } else {
-            $dirname = "四人麻雀";
-        }
+        $dirname = "成績管理システム";
 
         // 使い方
         if ($message_text == "使い方") {
