@@ -5,7 +5,7 @@
     $seiseki_dir = $system_dir . urlencode("成績") . "/";
     
     // ファイル読み込み
-    $path = "ランキング.csv"; //$seiseki_dir . urlencode("ランキング") . ".csv?" . date("YmdHis");
+    $path = $seiseki_dir . urlencode("ランキング") . ".csv?" . date("YmdHis");
     $temp_path = "temp/ランキング.csv";
     $contents = file_get_contents($path);
 
