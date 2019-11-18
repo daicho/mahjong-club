@@ -14,7 +14,6 @@ $rank_str = [
     "平均アガリ点",
     "平均放銃点",
     "ふっとび率",
-    "ふっとばし率",
     "リーチ率",
     "副露率",
     "リーチ成功率",
@@ -102,8 +101,6 @@ if ($event_type == "follow" || $event_type == "join") {
             $send_text .= "\n" . "(名前) 局別";
             $send_text .= "\n" . "(名前) 起家";
             $send_text .= "\n" . "(名前) 相性";
-            $send_text .= "\n" . "(名前) 推移";
-            $send_text .= "\n" . "(名前) (項目名)";
             $send_text .= "\n" . "使い方";
             $send_text .= "\n" . "ルール";
             $send_text .= "\n" . "大会 (番号)";
@@ -325,25 +322,6 @@ if ($event_type == "follow" || $event_type == "join") {
                     ];
                 }
             }
-
-            goto send;
-        }
-
-        // グラフ
-        $gfile = $record . str_replace("+", "%20", urlencode($message_text)) . ".png?" . date("YmdHis");
-
-        // グラフ名が存在したら
-        if (file_get_contents($gfile)) {
-
-            $messages = [
-                [
-                    "type" => "image",
-                    "originalContentUrl" => $gfile,
-                    "previewImageUrl" => $gfile
-                ]
-            ];
-
-            goto send;
         }
 
 send:
@@ -377,34 +355,6 @@ send:
             "Content-Type:application/json",
             "Authorization:Bearer " . ACCESS_TOKEN
         ));
-
-        // 推移
-        if (strpos($message_text, "推移")) {
-            $name = str_replace(" 推移", "", $message_text);
-
-            foreach ($rank_str as $item) {
-                $gfile = $record . urlencode($name) . "%20" . urlencode($item) . ".png?" . date("YmdHis");
-
-                // グラフ名が存在したら
-                if (file_get_contents($gfile)) {
-                    // 送信データ
-                    $post_data = [
-                        "to" => $source_id,
-                        "messages" => [
-                            [
-                                "type" => "image",
-                                "originalContentUrl" => $gfile,
-                                "previewImageUrl" => $gfile
-                            ]
-                        ]
-                    ];
-
-                    // curlを使用してメッセージを返信する
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
-                    $result = curl_exec($ch);
-                }
-            }
-        }
 
         // ランキング
         $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
