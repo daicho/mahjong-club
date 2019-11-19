@@ -1,7 +1,6 @@
 <?php
     class FileReader {
         protected $root;
-        protected $temp_path = "temp/temp";
 
         public function __construct($root) {
             $this->root = $root;
@@ -16,21 +15,22 @@
         // CSVファイルを読み込み
         public function loadCSV($path) {
             $url = $this->root . $path . "?" . date("YmdHis");
+            $temp_path = "temp/" . rand();
             $contents = file_get_contents($url);
 
             if ($contents) {
                 // シフトJIS→UTF-8に変換
-                file_put_contents($this->temp_path, mb_convert_encoding($contents, "UTF-8", "SJIS"));
+                file_put_contents($temp_path, mb_convert_encoding($contents, "UTF-8", "SJIS"));
 
-                $csv = new SplFileObject($this->temp_path);
-                $csv->setFlags(SplFileObject::READ_CSV);
+                $csv = new SplFileObject($temp_path);
+                $csv->setFlags(SplFileObject::READ_CSV | SplFileObject::DROP_NEW_LINE);
 
                 // 配列に格納
-                foreach ($csv as $row) {
-                    if (!is_null($row[0]))
-                        $data[] = $row;
-                }
+                foreach ($csv as $row)
+                    $data[] = $row;
             }
+
+            unlink($temp_path);
 
             return $data;
         }
