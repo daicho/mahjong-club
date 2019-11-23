@@ -1,6 +1,9 @@
 <?php
     require_once("FileReader.php");
 
+    //GET
+	$name = $_GET["name"];
+
     // ディレクトリパス定義
     $root_dir = "https://github.com/daicho/mahjong-club/raw/master/";
     $system_dir = urlencode("成績管理システム") . "/";
@@ -23,29 +26,16 @@
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type:'line',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+            data: [12, 19, 3, 5, 2, 3, 5],
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            lineTension: 0,
+            borderWidth: 4
         }]
     },
     options: {
@@ -62,22 +52,5 @@ var myChart = new Chart(ctx, {
     <h1>競技麻雀同好会 成績管理システム</h1>
     <h2>ランキング</h2>
     
-    <!-- テーブル表示 -->
-    <?php for($j = 1; $j < count($data[2]);$j +=2) { ?>
-        <h3><?= $data[0][$j]?></h3>
-        <table>
-            <tr>
-                <th>順位</th>
-                <th>個人名</th>
-            </tr>
-            <?php for($i = 2;$i < count($data) - 2;$i++){ ?>
-                <tr>
-                    <td><?= $data[$i][0] ?></td>
-                    <td><a href="personal.php?name=<?=$data[$i][$j]?>"><?= $data[$i][$j] ?></a></td>
-                    <td><?= $data[$i][$j + 1] ?></td>
-                </tr>
-            <?php } ?>
-        </table>
-    <?php } ?>
 
 </body>
