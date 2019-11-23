@@ -26,12 +26,12 @@
 
     <h3>成績</h3>
     <table>
-    <?php for ($i = 1; $i < 32; $i++) { ?>
-        <tr>
-        <?php for ($j = 0; $j < 3; $j++) { ?>
-            <td><?= $data[$i][$j] ?></td>
-        <?php } ?>
-        </tr>
-    <?php } ?>
+	    <?php for ($i = 1; $i < 32; $i++) { ?>
+	        <tr>
+		        <?php for ($j = 0; $j < 3; $j++) { ?>
+		            <td><?= $data[$i][$j] ?></td>
+		        <?php } ?>
+	        </tr>
+	    <?php } ?>
     </table>
 </body>
