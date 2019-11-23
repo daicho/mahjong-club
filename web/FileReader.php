@@ -28,6 +28,8 @@
                 // 配列に格納
                 foreach ($csv as $row)
                     $data[] = $row;
+            } else {
+            	return false;
             }
 
             unlink($temp_path);
