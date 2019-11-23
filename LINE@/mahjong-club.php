@@ -104,6 +104,7 @@ if ($event_type == "follow" || $event_type == "join") {
             $send_text .= "\n" . "ルール";
             $send_text .= "\n" . "大会 (番号)";
             $send_text .= "\n" . "相関";
+            $send_text .= "\n" . "翻数";
             $send_text .= "\n" . "ランキング";
 
             for ($i = 0; $i < count($rank_str); $i++)
@@ -189,7 +190,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // 成績
         $record = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/";
-        $name = str_replace([" 役", " 局別", " 起家", " 相性"], "", $message_text);
+        $name = str_replace([" 役", " 局別", " 起家", " 相性", " 翻数", " 飜数"], "", $message_text);
         $fname = $record . urlencode($name) . ".csv?" . date("YmdHis");
         $graph_score = $record . urlencode($message_text) . "-Score.png?" . date("YmdHis");
         $graph_kyoku = $record . urlencode($message_text) . "-Kyoku.png?" . date("YmdHis");
@@ -260,6 +261,19 @@ if ($event_type == "follow" || $event_type == "join") {
                     ]
                 ];
 
+            } else if (strpos($message_text, "翻数") || strpos($message_text, "飜数")) {
+                // アガリ翻数を送信
+                $send_text = $data[0][1] . " 翻数";
+                for ($i = 34; $i <= 46; $i++)
+                    $send_text .= "\n【" . $data[$i][0] ."】" . $data[$i][1] . " / " . $data[$i][2];
+
+                $messages = [
+                    [
+                        "type" => "text",
+                        "text" => $send_text
+                    ]
+                ];
+
             } else {
                 // 成績を送信
                 $send_text = $data[0][1] . "\n";
@@ -320,6 +334,12 @@ if ($event_type == "follow" || $event_type == "join") {
                         "previewImageUrl" => $graph_kyoku
                     ];
                 }
+
+                $messages[] = [
+                    "type" => "image",
+                    "originalContentUrl" => $graph_fan,
+                    "previewImageUrl" => $graph_fan
+                ];
             }
         }
 
