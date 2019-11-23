@@ -23,13 +23,14 @@
                 file_put_contents($temp_path, mb_convert_encoding($contents, "UTF-8", "SJIS"));
 
                 $csv = new SplFileObject($temp_path);
-                $csv->setFlags(SplFileObject::READ_CSV | SplFileObject::DROP_NEW_LINE);
+                $csv->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::READ_CSV);
 
                 // 配列に格納
                 foreach ($csv as $row)
-                    $data[] = $row;
+                    if (!is_null($row[0]))
+                        $data[] = $row;
             } else {
-            	return false;
+                return false;
             }
 
             unlink($temp_path);
