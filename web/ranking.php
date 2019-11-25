@@ -8,6 +8,7 @@
 
     $fileReader = new FileReader($root_dir);
     $data = $fileReader->loadCSV($seiseki_dir . urlencode("ランキング") . ".csv");
+    
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +30,22 @@
                 <th>順位</th>
                 <th>個人名</th>
             </tr>
+            <?php 
+            $rank = 1;
+            $disprank = 1;
+            ?>
             <?php for ($i = 2; $i < count($data) - 2; $i++) { ?>
                 <tr>
-                    <?php if(strcmp($data[$i][$j + 1],$data[$i - 1][$j + 1]) == 0){ ?>
-                        <td><?= $data[$i - 1][0] ?></td>
-                    <?php } else{?>
-                        <td><?= $data[$i][0] ?></td>
-                    <?php }?>
+                    <?php if($data[$i][$j + 1] != $data[$i - 1][$j + 1]){ 
+                        $disprank = $rank;
+                    }
+                    if("全体" != $data[$i][$j]){
+                        $rank++;
+                    ?>
+                        <td><?=  $disprank . "位"?></td>
+                    <?php }else {?>
+                        <td></td>
+                    <?php } ?>
                     <td><a href="personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
                     <td><?= $data[$i][$j + 1] ?></td>
                 </tr>
