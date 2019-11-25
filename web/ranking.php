@@ -34,7 +34,7 @@
             $rank = 1;
             $disprank = 1;
             ?>
-            <?php for ($i = 2; $i < count($data) - 2; $i++) { ?>
+            <?php for ($i = 2; $i < count($data); $i++) { ?>
                 <tr>
                     <?php if($data[$i][$j + 1] != $data[$i - 1][$j + 1]){ 
                         $disprank = $rank;
