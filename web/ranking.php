@@ -31,7 +31,11 @@
             </tr>
             <?php for ($i = 2; $i < count($data) - 2; $i++) { ?>
                 <tr>
-                    <td><?= $data[$i][0] ?></td>
+                    <?php if(strcmp($data[$i][$j + 1],$data[$i - 1][$j + 1]) == 0){ ?>
+                        <td><?= $data[$i - 1][0] ?></td>
+                    <?php } else{?>
+                        <td><?= $data[$i][0] ?></td>
+                    <?php }?>
                     <td><a href="personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
                     <td><?= $data[$i][$j + 1] ?></td>
                 </tr>
