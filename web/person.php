@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <title>成績管理システム</title>
     <link rel="stylesheet" href="style.css">
-    <script src="Chart.js/Chart.min.js"></script>
+    <script src="/Chart.js/Chart.min.js"></script>
 </head>
 <body>
     <h1>競技麻雀同好会 成績管理システム</h1>
