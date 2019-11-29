@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <title>成績管理システム</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h1>競技麻雀同好会 成績管理システム</h1>
