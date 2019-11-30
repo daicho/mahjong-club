@@ -1,3 +1,4 @@
 .ranking-container{
     display:flex;
+    flex-wrap:wrap;
 }
