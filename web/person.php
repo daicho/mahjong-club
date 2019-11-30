@@ -17,6 +17,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>成績管理システム</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/Chart.js/Chart.min.js"></script>

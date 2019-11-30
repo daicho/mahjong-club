@@ -15,6 +15,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>成績管理システム</title>
     <link rel="stylesheet" href="/css/ranking.css">
 </head>
@@ -48,7 +49,7 @@
                             <?php }else {?>
                                 <td></td>
                             <?php } ?>
-                            <td><a href="personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
+                            <td><a href="/personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
                             <td><?= $data[$i][$j + 1] ?></td>
                         </tr>
                     <?php } ?>
