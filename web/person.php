@@ -76,8 +76,8 @@
                 }
                 ?>
             </table>
-        </div>
-        <div class='personal-table'>
+        <!--</div>
+        <div class='personal-table turnBack'>-->
             <h3>局別収支</h3>
             <table>
                 <?php
@@ -92,8 +92,8 @@
                 }
                 ?>
             </table>
-        </div>
-        <div class='personal-table'>
+        <!--</div>
+        <div class='personal-table turnBack'>-->
             <h3>開始位置別スコア</h3>
             <table>
                 <?php
@@ -108,8 +108,8 @@
                 }
                 ?>
             </table>
-        </div>
-        <div class='personal-table'>
+        <!--</div>
+        <div class='personal-table turnBack'>-->
             <h3>相性</h3>
             <table>
                 <?php
@@ -127,18 +127,20 @@
                 ?>
             </table>
         </div>
-        <div  class='personal-graph',style="width:50%;">
+    <div class='graph'>        
+        <div  class='personal-graph'>
             <h3>スコア</h3>
             <canvas id="score" ></canvas>
         </div>
-        <div class='personal-graph',style="width:50%;">
+        <div class='personal-graph',style="width:100%;">
             <h3>局別スコア</h3>
             <canvas id="byStationScore"></canvas>
         </div>
-        <div class='personal-graph',style="width:50%;">
+        <div class='personal-graph',style="width:100%;">
             <h3>あがり翻数</h3>
             <canvas id="fanScore"></canvas>
         </div>
+    </div>
     </div>
     <script>
         var ctx = document.getElementById("score").getContext("2d");
