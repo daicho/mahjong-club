@@ -15,7 +15,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>成績管理システム</title>
     <link rel="stylesheet" href="/css/ranking.css">
 </head>
@@ -26,7 +26,7 @@
     <!-- テーブル表示 -->
     <div class='ranking-container'>
         <?php for ($j = 1; $j < count($data[2]);$j +=2) { ?>
-            <div class='table'>
+            <div class='ranking-table'>
                 <h3><?= $data[0][$j] ?></h3>
                 <table>
                     <tr>
