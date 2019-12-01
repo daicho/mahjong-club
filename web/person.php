@@ -17,120 +17,128 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>成績管理システム</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/person.css">
     <script src="/Chart.js/Chart.min.js"></script>
 </head>
 <body>
     <h1>競技麻雀同好会 成績管理システム</h1>
     <h2><?= $name ?></h2>
+    <div class='personal-container'>
+        <div class='personal-table'>
+                <h3>成績</h3>
+                <table>
+                <?php
+                for ($i = 1; $i <= 31; $i++) {
+                    echo "<tr>";
+                    for ($j = 0; $j <= 2; $j++) {
+                        echo "<td>";
+                        if ($j != 2 || $i < 23 || 28 < $i)
+                            echo $data[$i][$j];
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div class='personal-table'>
+            <h3>役</h3>
+                <table>
+                <?php
+                for ($i = 0; $i < count($data); $i++) {
+                    if ($data[$i][4] == "") break;
 
-    <h3>成績</h3>
-    <table>
-        <?php
-        for ($i = 1; $i <= 31; $i++) {
-            echo "<tr>";
-            for ($j = 0; $j <= 2; $j++) {
-                echo "<td>";
-                if ($j != 2 || $i < 23 || 28 < $i)
-                    echo $data[$i][$j];
-                echo "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
+                    echo "<tr>";
+                    for ($j = 5; $j <= 8; $j++) {
+                        echo $i == 0 ? "<th>" : "<td>";
+                        echo $data[$i][$j];
+                        echo $i == 0 ? "</th>" : "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div class='personal-table'>
+            <h3>アガリ翻数</h3>
+            <table>
+                <?php
+                for ($i = 33; $i <= 46; $i++) {
+                    echo "<tr>";
+                    for ($j = 0; $j <= 2; $j++) {
+                        echo $i == 33 ? "<th>" : "<td>";
+                        echo $data[$i][$j];
+                        echo $i == 33 ? "</th>" : "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div class='personal-table'>
+            <h3>局別収支</h3>
+            <table>
+                <?php
+                for ($i = 0; $i <= 8; $i++) {
+                    echo "<tr>";
+                    for ($j = 13; $j <= 15; $j++) {
+                        echo $i == 0 ? "<th>" : "<td>";
+                        echo $data[$i][$j];
+                        echo $i == 0 ? "</th>" : "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div class='personal-table'>
+            <h3>開始位置別スコア</h3>
+            <table>
+                <?php
+                for ($i = 10; $i <= 14; $i++) {
+                    echo "<tr>";
+                    for ($j = 13; $j <= 15; $j++) {
+                        echo $i == 10 ? "<th>" : "<td>";
+                        echo $data[$i][$j];
+                        echo $i == 10 ? "</th>" : "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div class='personal-table'>
+            <h3>相性</h3>
+            <table>
+                <?php
+                for ($i = 16; $i <= count($data); $i++) {
+                    if ($data[$i][13] == "") break;
 
-    <h3>役</h3>
-    <table>
-        <?php
-        for ($i = 0; $i < count($data); $i++) {
-            if ($data[$i][4] == "") break;
-
-            echo "<tr>";
-            for ($j = 5; $j <= 8; $j++) {
-                echo $i == 0 ? "<th>" : "<td>";
-                echo $data[$i][$j];
-                echo $i == 0 ? "</th>" : "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <h3>アガリ翻数</h3>
-    <table>
-        <?php
-        for ($i = 33; $i <= 46; $i++) {
-            echo "<tr>";
-            for ($j = 0; $j <= 2; $j++) {
-                echo $i == 33 ? "<th>" : "<td>";
-                echo $data[$i][$j];
-                echo $i == 33 ? "</th>" : "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <h3>局別収支</h3>
-    <table>
-        <?php
-        for ($i = 0; $i <= 8; $i++) {
-            echo "<tr>";
-            for ($j = 13; $j <= 15; $j++) {
-                echo $i == 0 ? "<th>" : "<td>";
-                echo $data[$i][$j];
-                echo $i == 0 ? "</th>" : "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <h3>開始位置別スコア</h3>
-    <table>
-        <?php
-        for ($i = 10; $i <= 14; $i++) {
-            echo "<tr>";
-            for ($j = 13; $j <= 15; $j++) {
-                echo $i == 10 ? "<th>" : "<td>";
-                echo $data[$i][$j];
-                echo $i == 10 ? "</th>" : "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <h3>相性</h3>
-    <table>
-        <?php
-        for ($i = 16; $i <= count($data); $i++) {
-            if ($data[$i][13] == "") break;
-
-            echo "<tr>";
-            for ($j = 13; $j <= 15; $j++) {
-                echo $i == 16 ? "<th>" : "<td>";
-                echo $data[$i][$j];
-                echo $i == 16 ? "</th>" : "</td>";
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-    <div style="width:50%;">
-        <h3>スコア</h3>
-        <canvas id="score" ></canvas>
-    </div>
-    <div style="width:50%;">
-        <h3>局別スコア</h3>
-        <canvas id="byStationScore"></canvas>
-    </div>
-    <div style="width:50%;">
-        <h3>あがり翻数</h3>
-        <canvas id="fanScore"></canvas>
+                    echo "<tr>";
+                    for ($j = 13; $j <= 15; $j++) {
+                        echo $i == 16 ? "<th>" : "<td>";
+                        echo $data[$i][$j];
+                        echo $i == 16 ? "</th>" : "</td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div  class='personal-graph',style="width:50%;">
+            <h3>スコア</h3>
+            <canvas id="score" ></canvas>
+        </div>
+        <div class='personal-graph',style="width:50%;">
+            <h3>局別スコア</h3>
+            <canvas id="byStationScore"></canvas>
+        </div>
+        <div class='personal-graph',style="width:50%;">
+            <h3>あがり翻数</h3>
+            <canvas id="fanScore"></canvas>
+        </div>
     </div>
     <script>
         var ctx = document.getElementById("score").getContext("2d");
