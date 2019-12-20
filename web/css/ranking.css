@@ -2,3 +2,32 @@
     display:flex;
     flex-wrap:wrap;
 }
+label {
+    display: block;
+    margin: 1.5px 0;
+    padding : 11px 12px;
+    color :#2f8fcf;
+    font-weight: bold;
+    background :#a4cbf3;
+    cursor :pointer;
+    transition: all 0.5s;
+}
+label:hover {
+    background :#85baef;
+}
+input {
+    display: none;
+}
+.accshow {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+.cssacc:checked + .accshow {
+    height: auto;
+    padding: 5px;
+    background: #eaeaea;
+    opacity: 1;
+}
