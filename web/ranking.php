@@ -27,33 +27,37 @@
     <div class='ranking-container'>
         <?php for ($j = 1; $j < count($data[2]);$j +=2) { ?>
             <div class='ranking-table'>
-                <h3><?= $data[0][$j] ?></h3>
-                <table>
-                    <tr>
-                        <th>順位</th>
-                        <th>個人名</th>
-                    </tr>
-                    <?php 
-                    $rank = 1;
-                    $disprank = 1;
-                    ?>
-                    <?php for ($i = 2; $i < count($data); $i++) { ?>
+                <label for="<?= $j?>"> <h3><?= $data[0][$j] ?></h3></label>
+
+                <input type="checkbox" id="<?= $j?>" class="cssacc" />
+                <div class="accshow">
+                    <table>
                         <tr>
-                            <?php if($data[$i][$j + 1] != $data[$i - 1][$j + 1]){ 
-                                $disprank = $rank;
-                            }
-                            if("全体" != $data[$i][$j]){
-                                $rank++;
-                            ?>
-                                <td><?=  $disprank . "位"?></td>
-                            <?php }else {?>
-                                <td></td>
-                            <?php } ?>
-                            <td><a href="/personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
-                            <td><?= $data[$i][$j + 1] ?></td>
+                            <th>順位</th>
+                            <th>個人名</th>
                         </tr>
-                    <?php } ?>
-                </table>
+                        <?php 
+                        $rank = 1;
+                        $disprank = 1;
+                        ?>
+                        <?php for ($i = 2; $i < count($data); $i++) { ?>
+                            <tr>
+                                <?php if($data[$i][$j + 1] != $data[$i - 1][$j + 1]){ 
+                                    $disprank = $rank;
+                                }
+                                if("全体" != $data[$i][$j]){
+                                    $rank++;
+                                ?>
+                                    <td><?=  $disprank . "位"?></td>
+                                <?php }else {?>
+                                    <td></td>
+                                <?php } ?>
+                                <td><a href="/personal/<?= $data[$i][$j] ?>"><?= $data[$i][$j] ?></a></td>
+                                <td><?= $data[$i][$j + 1] ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
             </div>
         <?php } ?>
     </div>
