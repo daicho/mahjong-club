@@ -6,14 +6,14 @@ label {
     display: block;
     margin: 1.5px 0;
     padding : 11px 12px;
-    color :#2f8fcf;
+    color :#006400;
     font-weight: bold;
-    background :#a4cbf3;
+    background :#adff2f;
     cursor :pointer;
     transition: all 0.5s;
 }
 label:hover {
-    background :#85baef;
+    background :#adff2f;
 }
 input {
     display: none;
@@ -28,6 +28,6 @@ input {
 .cssacc:checked + .accshow {
     height: auto;
     padding: 5px;
-    background: #eaeaea;
+    background: #fff8dc;
     opacity: 1;
 }
