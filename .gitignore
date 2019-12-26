@@ -1,2 +1,2 @@
-temp/
-!.gitkeep
+/web/temp/*
+!/web/temp/.gitkeep
