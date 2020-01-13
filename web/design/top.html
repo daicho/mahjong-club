@@ -17,7 +17,9 @@
               },
               h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
             })(document);
-          </script>
+        </script>
+
+        <script type="text/javascript" src="test.js"></script>
     </head>
 
     <body>
@@ -28,18 +30,17 @@
             </a>
         </header>
 
-        <div class="button">
-            <a href="" class="rank">
-                <img src="svg/rank_fill.svg" alt="" class="rank_img">
+        <div class="switch">
+            <div class="rank" onclick="rank_click()">
+                <img src="svg/rank_fill.svg" , alt="" id="rank_img">
                 <p>ランキング</p>
-            </a>
+            </div>
 
-            <a href="" class="man">
-                <img src="svg/man_frame.svg" alt="" class="man_img">
+            <div class="man" onclick="man_click()">
+                <img src="svg/man_frame.svg" alt="" id="man_img">
                 <p>参加者</p>
-            </a>
+            </div>
         </div>
-    
 
     </body>
 </html>

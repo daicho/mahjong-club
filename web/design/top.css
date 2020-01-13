@@ -43,23 +43,23 @@ img
     margin: 67px auto;
 }
 
-
-.button
+/*-------------------切り替えボタンの装飾---------------*/
+.switch
 {
     width: 205px;
     height: 60px;
     margin: 0 auto;
     margin-bottom: 20px;
-}
+}  
 
-.button a
+.switch div
 {
     display: inline-block;
     text-align: center;
     color: #111926;
 }
 
-.button a img
+.switch div img
 {
     
     height: 35px;
@@ -72,14 +72,16 @@ img
 {
     margin-right: 87px;
     float: left;
+    cursor : pointer;
 }
 
 .man
 {
     float: right;
+    cursor : pointer;
 }
 
-.button p
+.switch p
 {
     font-size: 14px;
     margin: 0;
