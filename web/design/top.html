@@ -19,7 +19,6 @@
             })(document);
         </script>
 
-        <script type="text/javascript" src="JS/test.js"></script>
     </head>
 
     <body>
@@ -31,16 +30,53 @@
         </header>
 
         <div class="switch">
+            <div class="line"></div>
+
             <div class="rank" onclick="rank_click()">
-                <img src="svg/rank_fill.svg" , alt="" id="rank_img">
+                <img id="rank_img" src="svg/rank_fill.svg" alt="">
                 <p>ランキング</p>
             </div>
 
             <div class="man" onclick="man_click()">
-                <img src="svg/man_frame.svg" alt="" id="man_img">
+                <img id="man_img" src="svg/man_frame.svg" alt="">
                 <p>参加者</p>
             </div>
         </div>
 
+        <section id="rank_block">
+            <input id="check1" class="check_flag" type="checkbox">
+
+            <label class="rank_type" for="check1">
+                <p class="">通算スコア</p>
+                <img src="svg/under_arrow.svg" alt="">
+            </label>
+
+            <div class="ranking">
+                <a class="name_block" href="">
+                    <p class="rank_num">1</p>
+                    <p class="name">麻雀太郎</p>
+                    <p class="score">+130.9</p>
+                    <img class="arrow" src="svg/arrow_trans.svg" alt="">
+                </a>
+
+                <a class="name_block" href="">
+                    <p class="rank_num">2</p>
+                    <p class="name">麻雀太郎</p>
+                    <p class="score">+59.9</p>
+                    <img class="arrow" src="svg/arrow_trans.svg" alt="">
+                </a>
+
+                <a class="name_block" href="">
+                    <p class="rank_num">2</p>
+                    <p class="name">麻雀太郎</p>
+                    <p class="score">+2.9</p>
+                    <img class="arrow" src="svg/arrow_trans.svg" alt="">
+                </a>
+            </div>
+                
+        </section>
+
+
+        <script type="text/javascript" src="test.js"></script>
     </body>
 </html>
