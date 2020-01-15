@@ -25,8 +25,8 @@
 <body>
     <h1>競技麻雀同好会 成績管理システム</h1>
     <h2><?= $name ?></h2>
-    <div class='personal-container'>
-        <div class='personal-table'>
+    <div class="personal-container">
+        <div class="personal-table">
                 <h3>成績</h3>
                 <table>
                 <?php
@@ -43,7 +43,7 @@
                 ?>
             </table>
         </div>
-        <div class='personal-table'>
+        <div class="personal-table">
             <h3>役</h3>
                 <table>
                 <?php
@@ -61,7 +61,7 @@
                 ?>
             </table>
         </div>
-        <div class='personal-table'>
+        <div class="personal-table">
             <h3>アガリ翻数</h3>
             <table>
                 <?php
@@ -77,7 +77,7 @@
                 ?>
             </table>
         <!--</div>
-        <div class='personal-table turnBack'>-->
+        <div class="personal-table turnBack">-->
             <h3>局別収支</h3>
             <table>
                 <?php
@@ -93,7 +93,7 @@
                 ?>
             </table>
         <!--</div>
-        <div class='personal-table turnBack'>-->
+        <div class="personal-table turnBack">-->
             <h3>開始位置別スコア</h3>
             <table>
                 <?php
@@ -109,7 +109,7 @@
                 ?>
             </table>
         <!--</div>
-        <div class='personal-table turnBack'>-->
+        <div class="personal-table turnBack">-->
             <h3>相性</h3>
             <table>
                 <?php
@@ -127,16 +127,16 @@
                 ?>
             </table>
         </div>
-    <div class='graph'>        
-        <div  class='personal-graph'>
+    <div class="graph">        
+        <div  class="personal-graph">
             <h3>スコア</h3>
             <canvas id="score" ></canvas>
         </div>
-        <div class='personal-graph',style="width:100%;">
+        <div class="personal-graph",style="width:100%;">
             <h3>局別スコア</h3>
             <canvas id="byStationScore"></canvas>
         </div>
-        <div class='personal-graph',style="width:100%;">
+        <div class="personal-graph",style="width:100%;">
             <h3>あがり翻数</h3>
             <canvas id="fanScore"></canvas>
         </div>
@@ -175,9 +175,9 @@
             }
         });
     
-        let ctxByStation = document.getElementById('byStationScore').getContext('2d');
+        let ctxByStation = document.getElementById("byStationScore").getContext("2d");
         let myScoreByStation  = new Chart(ctxByStation, {
-            type: 'line',
+            type: "line",
             data:{
                 labels: [
                     <?php
@@ -209,9 +209,9 @@
         });
 
 
-        let ctxfan = document.getElementById('fanScore').getContext('2d');
+        let ctxfan = document.getElementById("fanScore").getContext("2d");
         let myFanScore  = new Chart(ctxfan, {
-            type: 'bar',
+            type: "bar",
             data:{
                 labels: [
                     <?php
