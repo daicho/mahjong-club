@@ -149,7 +149,6 @@ img
     padding: 0;
     overflow: hidden;
     opacity: 0;
-    cursor: pointer;
     transition: all 0.8s;
 }
 
