@@ -121,7 +121,7 @@ img
     max-width: 500px;
     border-bottom: solid 1px;
     color: white;
-
+    transition: all 0.5s;
     margin: 0 auto;
 }
 
@@ -144,12 +144,18 @@ img
 /*------------------- 個人名の装飾 ---------------*/
 .ranking
 {
-    display: none;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.8s;
+    /*display: none;*/
 }
 
 .check_flag:checked + .rank_type + .ranking
 {
     display: block;
+    opacity: 1;
 }
 
  .name_block
