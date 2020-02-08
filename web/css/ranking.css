@@ -120,9 +120,10 @@ img
     height: 61px;
     max-width: 500px;
     border-bottom: solid 1px;
-    color: white;
-    transition: all 0.5s;
     margin: 0 auto;
+    color: white;
+    cursor :pointer;
+    transition: all 0.5s;
 }
 
 .rank_type p
@@ -147,15 +148,16 @@ img
     height: 0;
     padding: 0;
     overflow: hidden;
-    opacity: 1;
+    opacity: 0;
+    cursor: pointer;
     transition: all 0.8s;
-    /*display: none;*/
 }
 
 .check_flag:checked + .rank_type + .ranking
 {
     display: block;
     opacity: 1;
+    height: auto;
 }
 
  .name_block
