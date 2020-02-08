@@ -72,6 +72,7 @@
                             ?>
                                 <p class="rank_num"><?= $disprank ?></p>
                             <?php }else {?>
+                                <p class="rank_totally"></p>
                             <?php } ?>
                             <p class="name"><?= $data[$i][$j]?></p>
                             <p class="score"><?= $data[$i][$j + 1]?></p>
