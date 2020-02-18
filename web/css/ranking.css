@@ -178,8 +178,16 @@ img
 {
     width: 10px;
     height: 100%;
+}
 
+.name_block .black
+{
     background-color:  #111926;
+}
+
+.name_block .yellow
+{
+    background-color:  #EACD53;
 }
 
 .name_block p

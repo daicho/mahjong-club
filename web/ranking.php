@@ -68,7 +68,7 @@
                                 $disprank = $rank;
                             }
                             ?>
-                            <div class="indent"></div>
+                            <div class="indent <?= $i % 2 ? 'yellow' : 'black' ?>"></div>
                             <?php
                             if("全体" != $data[$i][$j]){
                                 $rank++;
