@@ -67,11 +67,14 @@
                             <?php if($data[$i][$j + 1] != $data[$i - 1][$j + 1]){ 
                                 $disprank = $rank;
                             }
+                            ?>
+                            <div class="indent"></div>
+                            <?php
                             if("全体" != $data[$i][$j]){
                                 $rank++;
                             ?>
                                 <p class="rank_num"><?= $disprank ?></p>
-                            <?php }else {?>
+                            <?php } else {?>
                                 <p class="rank_totally"></p>
                             <?php } ?>
                             <p class="name"><?= $data[$i][$j]?></p>

@@ -169,14 +169,22 @@ img
     height: 61px;
     max-width: 500px;
     border-bottom: solid 1px;
-    color: white;
+    color:  white;
 
     margin: 0 auto;
 }
 
+.name_block .indent
+{
+    width: 10px;
+    height: 100%;
+
+    background-color:  #111926;
+}
+
 .name_block p
 {
-    color:  #111926;
+    color: #111926;
 }
 
 .rank_num 
