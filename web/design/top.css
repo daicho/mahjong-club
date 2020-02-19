@@ -147,6 +147,7 @@ img
     display: none;
 }
 
+
 .check_flag:checked + .rank_type + .ranking
 {
     display: block;
@@ -165,6 +166,13 @@ img
     color: white;
 
     margin: 0 auto;
+}
+
+.indent
+{
+    width: 10px;
+    height: 100%;
+    background-color: #111926;
 }
 
 .name_block p
