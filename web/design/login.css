@@ -1,0 +1,116 @@
+html
+{
+    overflow: auto;
+}
+
+body
+{
+    position: absolute;
+
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    background-color: #E3D3C6;
+}
+
+a
+{   
+    text-decoration: none;   
+}
+
+img
+{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*-------------------ヘッダーの装飾---------------*/
+.header_block .logo
+{
+    display: block;
+
+    width: auto;
+    height: 60px;
+
+    margin: 67px auto 140px auto;
+}
+
+/*-------------------ログインフォームの装飾---------------*/
+/* 入力フォーム全体 */
+.login_form
+{
+    display: block;
+    width: 320px;
+    margin: 0 auto;
+}
+
+/* 錠シンボル */
+.lock_img
+{
+    display: block;
+    width: 93px;
+    height: 93px;
+
+    margin: 0 auto 20px auto;
+}
+
+/* 入力フォーム */
+#pass_form
+{
+    display: block;
+
+    font-size: 18px;
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #111926;
+
+    width: 320px;
+    height: 35px;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 3px #111926;
+    background-color: #E3D3C6;
+    margin-bottom: 28px;
+
+    outline: 0;
+}
+
+#pass_form::placeholder
+{
+    color: #606060;
+}
+
+/* ログインボタン */
+#login_btn
+{
+    display: block;
+
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px;
+    color: #E3D3C6;
+
+    width: 100px;
+    height: 40px;
+    background-color: #111926;
+    border-radius: 100px;
+    border: none;
+    margin: 0 auto;
+
+    outline: 0;
+
+    cursor: pointer;
+}
+
+
+
+
