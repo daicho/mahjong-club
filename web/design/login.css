@@ -59,6 +59,18 @@ img
     margin: 0 auto 20px auto;
 }
 
+/* エラーメッセージ */
+.error_msg
+{
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #c02525;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 0;
+
+}
 /* 入力フォーム */
 #pass_form
 {
