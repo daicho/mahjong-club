@@ -1,6 +1,14 @@
 <?php
     require_once("FileReader.php");
 
+    session_start();
+
+    // ログイン判定
+    if (!isset($_SESSION["LOGIN"])) {
+        header("Location: /login.php");
+        exit();
+    }
+
     // GET
     $name = $_GET["name"];
 
@@ -18,7 +26,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>成績管理システム</title>
+    <title><?= $name ?>の成績 - 成績管理システム | 競技麻雀同好会</title>
     <link rel="stylesheet" href="/css/person.css">
     <script src="/Chart.js/Chart.min.js"></script>
 </head>
@@ -27,8 +35,8 @@
     <h2><?= $name ?></h2>
     <div class="personal-container">
         <div class="personal-table">
-                <h3>成績</h3>
-                <table>
+            <h3>成績</h3>
+            <table>
                 <?php
                 for ($i = 1; $i <= 31; $i++) {
                     echo "<tr>";
