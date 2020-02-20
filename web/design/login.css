@@ -97,11 +97,11 @@ img
     font-weight: 600;
     font-style: normal;
     font-size: 18px;
-    color: #E3D3C6;
+    color: #808080;
 
     width: 100px;
     height: 40px;
-    background-color: #111926;
+    background-color: #4d4d4d;
     border-radius: 100px;
     border: none;
     margin: 0 auto;
@@ -109,6 +109,7 @@ img
     outline: 0;
 
     cursor: pointer;
+    pointer-events: none;
 }
 
 
