@@ -1,4 +1,12 @@
 <?php
+    session_start();
+
+    // ログイン判定
+    if (isset($_SESSION["LOGIN"])) {
+        header("Location: /");
+        exit();
+    }
+
     $login_failed = (isset($_GET["failed"]) && $_GET["failed"] == "1");
 ?>
 
@@ -34,17 +42,15 @@
         <section class="login_form">
             <img class="lock_img" src="/svg/lock.svg" alt="錠マーク">
 
+            <?php if ($login_failed) { ?>
+                <p class="error_msg">パスワードが間違っています</p>
+            <?php } ?>
+
             <form name="forms" action="/auth.php" method="post">
                 <input id="pass_form" type="password" name="password" placeholder="パスワード">
                 <input id="login_btn" type="submit" name="login" value="ログイン">
             </form>
         </section>
-
-        <?php if ($login_failed) { ?>
-            <div>
-                パスワードが間違っています<br>
-            </div>
-        <?php } ?>
 
         <script type="text/javascript" src="/js/login.js"></script>
     </body>
