@@ -6,7 +6,7 @@ form_value.oninput = () => {
 
     let login_btn = document.forms.login.style;
 
-    if(this.value != "")
+    if(form_value.value != "")
     {
         login_btn.pointerEvents = "auto";
         login_btn.backgroundColor = "#eacd53";
