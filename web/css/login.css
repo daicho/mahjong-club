@@ -1,15 +1,10 @@
-html
-{
-    overflow: auto;
-}
-
 body
 {
     position: absolute;
 
     margin: 0;
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
 
     box-sizing: border-box;
 
@@ -29,6 +24,32 @@ img
     user-select: none;
 }
 
+/* iOSのスタイルを消去*/
+input[type="button"],
+input[type="submit"]
+{
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-appearance: none;
+  overflow:visible;
+  padding: 0;
+}
+
+input[type="password"]
+{
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    
+    padding: 0;
+    font-size: 18px;
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
 /*-------------------ヘッダーの装飾---------------*/
 .header_block .logo
 {
@@ -41,6 +62,15 @@ img
 }
 
 /*-------------------ログインフォームの装飾---------------*/
+
+.border_test
+{
+    height: 20px;
+    margin: 0 auto;
+    width: 300px;
+    border-bottom: solid 3px #111926;
+}
+
 /* 入力フォーム全体 */
 .login_form
 {
@@ -71,7 +101,8 @@ img
     margin-bottom: 0;
 
 }
-/* 入力フォーム */
+
+
 #pass_form
 {
     display: block;
@@ -104,11 +135,11 @@ img
 #login_btn
 {
     display: block;
-
+    
+    font-size: 18px;
     font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 18px;
     color: #808080;
 
     width: 100px;
@@ -117,6 +148,7 @@ img
     border-radius: 100px;
     border: none;
     margin: 0 auto;
+    text-align: center;
 
     outline: 0;
 
