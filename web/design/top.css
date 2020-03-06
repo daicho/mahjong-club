@@ -16,8 +16,7 @@ body
 
 a
 {
-    text-decoration: none;
-    
+    text-decoration: none;   
 }
 
 img
@@ -161,19 +160,38 @@ input[type="password"]
     padding-right: 16px;
 }
 
-/*-------------------個人名の装飾---------------*/
 .ranking
 {
     display: none;
 }
 
+.rank_type
+{
+    cursor: pointer;
+}
 
 .check_flag:checked + .rank_type + .ranking
 {
     display: block;
 }
 
- .name_block
+
+/*-------------------参加者の装飾---------------*/
+#member_block
+{
+    display: none;
+}
+
+.name_block .number
+{
+    padding-left: 16px;
+    padding-right: 10px;
+    width: 45px;
+    height: auto;
+}
+
+/*-------------------個人名の装飾---------------*/
+.name_block
 {
     display: flex;
     justify-content: space-between;
@@ -235,10 +253,6 @@ input[type="password"]
     padding-right: 23px;
     float: right;
 }
-
-
-
-
 
 
 
