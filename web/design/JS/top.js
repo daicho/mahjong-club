@@ -76,7 +76,6 @@ const checkMember = () => {
     for(let i = 0; i < num; i++)
     {
         hash = makeHash(member[i].textContent, member[i].textContent.length);
-        console.log(hash);
         no[i].textContent = emoji[hash];
     }
 }
