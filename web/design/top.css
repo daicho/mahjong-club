@@ -190,6 +190,22 @@ input[type="password"]
     height: auto;
 }
 
+.emoji
+{
+    font-family: "Segoe UI Emoji",
+                 "Segoe UI Symbol",
+                 "Apple Color Emoji",
+                 sans-serif;
+    font-size: 23px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 23px;
+    margin-right: 11px;
+
+    padding-top: 3px;
+}
+
 /*-------------------個人名の装飾---------------*/
 .name_block
 {
