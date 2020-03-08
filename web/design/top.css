@@ -91,7 +91,6 @@ input[type="password"]
 
 .rank
 {
-    /* margin-right: 87px; */
     float: left;
     cursor : pointer;
 }
@@ -167,12 +166,16 @@ input[type="password"]
     display: none;
 }
 
+.check_flag:checked + .rank_type img
+{
+    display: block;
+    transform: rotateX(180deg);
+}
 
 .check_flag:checked + .rank_type + .ranking
 {
     display: block;
 }
-
 
 /*-------------------参加者の装飾---------------*/
 #member_block
