@@ -12,11 +12,16 @@
             return file_get_contents($url);
         }
 
+        // テキストファイルを配列で読み込み
+        public function loadLines($path) {
+            $url = $this->root . $path . "?" . date("YmdHis");
+            return file($url, FILE_IGNORE_NEW_LINES);
+        }
+
         // CSVファイルを読み込み
         public function loadCSV($path) {
-            $url = $this->root . $path . "?" . date("YmdHis");
+            $contents = $this->loadText($path);
             $temp_path = "temp/" . rand();
-            $contents = file_get_contents($url);
 
             if ($contents) {
                 // シフトJIS→UTF-8に変換
