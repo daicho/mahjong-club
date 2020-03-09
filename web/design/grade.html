@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            成績管理システム　| 競技麻雀同好会
+        </title>
+        <link rel="stylesheet" href="grade.css">
+
+        <script>
+            (function(d) {
+              var config = {
+                kitId: 'evc7hwv',
+                scriptTimeout: 3000,
+                async: true
+              },
+              h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);
+        </script>
+
+    </head>
+
+    <body>
+        <header class="header_block">
+            <a href="top.html">
+                <img src="svg/logo.svg" class="logo"alt="競技麻雀同好会のロゴ">
+            </a>
+        </header>
+
+        <h1 class="name">麻雀 太郎</h1>
+
+        <div class="switch_btn">
+            <div class="left_btn" onclick="leftClick()"></div>
+            <h2 class="grade_type">成績</h2>
+            <div class="right_btn" onclick="rightClick()"></div>
+        </div>
+
+        <section class="grade" id="grade"> 
+            <div class="figure" id="grade_figure">
+                <p>ここに図が入ります1</p>
+            </div>
+
+            <div class="item">
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param3"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grade" id="role"> 
+            <div class="figure" id="role_figure">
+                <p>ここに図が入ります2</p>
+            </div>
+
+            <div class="item">
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param3"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param3"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grade" id="win"> 
+            <div class="figure" id="win_figure">
+                <p>ここに図が入ります3</p>
+            </div>
+
+            <div class="item">
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param3"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+
+                <div class="each_item">
+                    <p class="param1">双極数</p>
+                    <p class="param2"></p>
+                    <p class="param3"></p>
+                    <p class="param4">46.2%</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="switch_btn">
+            <div class="left_btn" onclick="leftClick()"></div>
+            <h2 class="grade_type">成績</h2>
+            <div class="right_btn" onclick="rightClick()"></div>
+        </footer>
+
+        <script type="text/javascript" src="JS/grade.js"></script>
+    </body>
+</html>

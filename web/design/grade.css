@@ -1,0 +1,161 @@
+body
+{
+    position: absolute;
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: 0;
+    width: 100%;
+    overflow: auto;
+
+    box-sizing: border-box;
+
+    background-color: #E3D3C6;
+}
+
+a
+{
+    text-decoration: none;   
+}
+
+img
+{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*-------------------ヘッダーの装飾---------------*/
+.header_block .logo
+{
+    display: block;
+
+    width: auto;
+    height: 60px;
+
+    margin: 67px auto;
+}
+
+/*-------------------個人名の装飾---------------*/
+.name
+{
+    font-size: 24px;
+    color:  #111926;
+    text-align: center;
+}
+
+/*-------------------項目切り替えボタンの装飾---------------*/
+.switch_btn
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 54px;
+    max-width: 270px;
+    margin: 22px auto 22px auto;
+}
+
+.left_btn
+{
+    width: 15px;
+    height: 15px;
+
+    border-top: none;
+    border-left: solid 3px #111926;
+    border-right: none;
+    border-bottom: solid 3px #111926;
+    background-color: #E3D3C6;
+
+    transform: rotate(45deg);
+
+    cursor: pointer;
+
+}
+
+.right_btn
+{
+    width: 15px;
+    height: 15px;
+
+    border-top: none;
+    border-left: none;
+    border-right: solid 3px #111926;
+    border-bottom: solid 3px #111926;
+    background-color: #E3D3C6;
+
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+.grade_type
+{
+    font-size: 18px;
+    color:  #111926;
+}
+
+/*-------------------3つの成績項目の装飾---------------*/
+#win
+{
+    display: none;
+}
+
+#role
+{
+    display: none;
+}
+
+/*-------------------グラフの装飾---------------*/
+.figure
+{
+    color: #eacd53;
+
+    width: 368px;
+    height: 244px;
+    background-color: #111926;
+    border-radius: 10px;
+
+    margin: 0 auto;
+}
+
+.item
+{
+    width: 100%;
+    max-width: 368px;
+
+    margin: 0 auto;
+}
+
+/*-------------------各成績項目の装飾---------------*/
+.each_item
+{
+    width: 100%;
+    height: 61px;
+
+    display: flex;
+    border-bottom: solid 2px #111926;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+    color: #111926;
+}
+
+.param1
+{
+    flex-grow: 2;
+}
+
+.param3
+{
+    padding-left: 20px;
+}
+.param4
+{
+    padding-left: 20px;
+}
+
+
