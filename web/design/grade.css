@@ -95,15 +95,11 @@ img
 {
     font-size: 18px;
     color:  #111926;
+    padding-left: 12px;
 }
 
-/*-------------------3つの成績項目の装飾---------------*/
-#win
-{
-    display: none;
-}
-
-#role
+/*-------------------アクセス時だけの装飾---------------*/
+#role, #win, #kyokubetsu, #score, #aisho
 {
     display: none;
 }
