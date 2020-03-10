@@ -163,7 +163,7 @@ if ($event_type == "follow" || $event_type == "join") {
             if (file_get_contents($fname)) {
                 if (is_null($data)) {
                     // CSVを読み込み
-                    file_put_contents($myfname, mb_convert_encoding(file_get_contents($fname), 'UTF-8', 'SJIS'));
+                    file_put_contents($myfname, mb_convert_encoding(file_get_contents($fname), "UTF-8", 'SJIS'));
 
                     $csv = new SplFileObject($myfname);
                     $csv->setFlags(SplFileObject::READ_CSV);
@@ -387,7 +387,7 @@ send:
         if (file_get_contents($fname)) {
             if (is_null($data)) {
                 // CSVを読み込み
-                file_put_contents($myfname, mb_convert_encoding(file_get_contents($fname), 'UTF-8', 'SJIS'));
+                file_put_contents($myfname, mb_convert_encoding(file_get_contents($fname), "UTF-8", "SJIS-win"));
 
                 $csv = new SplFileObject($myfname);
                 $csv->setFlags(SplFileObject::READ_CSV);
