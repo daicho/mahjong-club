@@ -110,7 +110,7 @@
     <!-- 会員 -->
     <section id="member_block">
         <?php for ($i = 0; $i < count($players); $i++) { ?>
-            <a class="name_block" href="">
+            <a class="name_block" href="/personal/<?= $players[$i] ?>">
                 <p class="emoji"></p>
                 <p class="name"><?= $players[$i] ?></p>
                 <img class="arrow" src="svg/arrow_trans.svg" alt="">

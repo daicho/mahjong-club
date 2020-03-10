@@ -43,12 +43,12 @@ const checkMember = () => {
 }
 
 const makeHash = (name, range) => {
-    let hash = 0;
+    let sum = 0;
 
     for(let i = 0; i < name.length; i++)
     {
-        hash += name.charCodeAt(i);
+        sum += name.charCodeAt(i);
     }
 
-    return hash % range;
+    return sum % range;
 }
