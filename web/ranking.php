@@ -25,7 +25,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>
-            成績管理システム　| 競技麻雀同好会
+            ランキング - 成績管理システム | 競技麻雀同好会
         </title>
         <link rel="stylesheet" href="/css/ranking.css">
 
