@@ -41,7 +41,7 @@ img
 /*-------------------個人名の装飾---------------*/
 .name
 {
-    font-size: 24px;
+    font-size: 22px;
     color:  #111926;
     text-align: center;
 }
@@ -55,6 +55,7 @@ img
 
     width: 100%;
     height: 54px;
+    width: 65.2vw;
     max-width: 270px;
     margin: 22px auto 22px auto;
 }
@@ -104,28 +105,36 @@ img
     display: none;
 }
 
+/*-------------------成績全体の装飾---------------*/
+.grade
+{   
+    width: calc(100% - 46px);
+    max-width: calc(500px - 46px); 
+    margin: 0 auto;
+}
+
 /*-------------------グラフの装飾---------------*/
 .figure
 {
     color: #eacd53;
 
-    width: 368px;
-    height: 244px;
+    width: 100%;
+    height: 58.9vw;
+    max-height: 298px;
     background-color: #111926;
     border-radius: 10px;
-
-    margin: 0 auto;
-}
-
-.item
-{
-    width: 100%;
-    max-width: 368px;
+    border: none;
 
     margin: 0 auto;
 }
 
 /*-------------------各成績項目の装飾---------------*/
+.item
+{
+    width: 100%;
+    margin: 0 auto;
+}
+
 .each_item
 {
     width: 100%;
@@ -134,24 +143,48 @@ img
     display: flex;
     border-bottom: solid 2px #111926;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 
-    font-size: 18px;
     color: #111926;
 }
 
 .param1
 {
-    flex-grow: 2;
+    font-size: 16px;
+    width: 52.6%;
+    text-align: left;
 }
+
+
 
 .param3
 {
-    padding-left: 20px;
+    padding-left: 1px;
 }
 .param4
 {
-    padding-left: 20px;
+    padding-left: 1px;
 }
 
+.param2, .param3, .param4
+{
+    width: calc((100% - 52.6%)/3);
+    font-size: 14px;
+    text-align: right;
+}
 
+@media screen and (max-width:400px) 
+{   
+    .param1
+    {
+        font-size: 14px;
+    }
+
+    .param2, .param3, .param4
+    {
+        width: calc((100% - 42%)/3);
+        font-size: 14px;
+        text-align: right;
+    }
+
+}

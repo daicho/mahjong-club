@@ -237,7 +237,7 @@ input[type="password"]
 
 .rank_num 
 {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;
@@ -253,6 +253,7 @@ input[type="password"]
 .name
 {
     flex-grow: 3;
+    font-size: 18px;
 }
 
 .score
@@ -260,6 +261,8 @@ input[type="password"]
     font-size: 14px;
     padding-right: 41px;
     float: right;
+    
+    font-size: 16px;
 }
 
 .arrow
