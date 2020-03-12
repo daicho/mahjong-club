@@ -1,3 +1,10 @@
+version 1.4
+    ・common.cssを追加しました。
+
+    バグ修正一覧
+    ・grade.cssにおいて切り替えボタンの押しづらさを軽減しました。
+
+
 version 1.3.1
     ・top.htmlにおいて名前を18px, 数値を16pxに統一
     しました。
