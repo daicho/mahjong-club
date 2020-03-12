@@ -1,4 +1,6 @@
 DirectoryIndex ranking.php
 RewriteEngine on
 RewriteBase /
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteRule ^personal/(.*)$ person.php?name=$1
