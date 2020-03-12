@@ -15,11 +15,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>
-            ログイン - 成績管理システム | 競技麻雀同好会
-        </title>
+        <title>ログイン - 成績管理システム | 競技麻雀同好会</title>
+        <link rel="stylesheet" href="/css/common.css">
         <link rel="stylesheet" href="/css/login.css">
-
         <script>
             (function(d) {
               var config = {
@@ -34,7 +32,7 @@
 
     <body>
         <header class="header_block">
-            <a href="">
+            <a href="/">
                 <img class="logo" src="/svg/logo.svg" alt="競技麻雀同好会のロゴ">
             </a>
         </header>
@@ -51,6 +49,10 @@
                 <input id="login_btn" type="submit" name="login" value="ログイン">
             </form>
         </section>
+
+        <footer>
+            <p>&copy; 2020 長野高専競技麻雀同好会</p>
+        </footer>
 
         <script type="text/javascript" src="/js/login.js"></script>
     </body>

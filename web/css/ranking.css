@@ -193,6 +193,7 @@ input[type="password"]
 
 .emoji
 {
+    /* display: block; */
     font-family: "Segoe UI Emoji",
                  "Segoe UI Symbol",
                  "Apple Color Emoji",
@@ -237,7 +238,7 @@ input[type="password"]
 
 .rank_num 
 {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;
@@ -264,6 +265,7 @@ input[type="password"]
 .name
 {
     flex-grow: 3;
+    font-size: 18px;
 }
 
 .score
@@ -271,6 +273,8 @@ input[type="password"]
     font-size: 14px;
     padding-right: 41px;
     float: right;
+    
+    font-size: 16px;
 }
 
 .arrow
@@ -310,4 +314,24 @@ input[type="password"]
 {
     width: 15px;
     height: auto;
+}
+
+/*-------------------フッターの装飾---------------*/
+footer
+{
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+
+    background-color: #E3D3C6;
+
+    margin: 0 auto;
+}
+
+footer p
+{
+    padding-top: 50px;
+    color: #111926;
+    text-align: center;
+    font-size: 14px;
 }
