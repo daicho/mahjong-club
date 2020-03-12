@@ -82,7 +82,13 @@
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][5] ?></p>
                         <p class="param2"><?= $data[$i][6] ?></p>
-                        <p class="param3"><?= $data[$i][7] ?></p>
+
+                        <?php if (strlen($data[$i][7]) <= 6) { ?>
+                            <p class="param3"><?= $data[$i][7] ?></p>
+                        <?php } else { ?>
+                            <p class="param3"><?= substr($data[$i][7], 0, 5) . "%" ?></p>
+                        <?php } ?>
+
                         <p class="param4"><?= $data[$i][8] ?></p>
                     </div>
                 <?php } ?>
@@ -91,12 +97,16 @@
 
         <!-- 「アガリ翻数」のセクション -->
         <section class="grade" id="win"> 
-            <div class="figure" id="win_figure">
-                <canvas id="fan_graph"></canvas>
-            </div>
+            <?php if ($name != "全体") { ?>
+                <div class="figure" id="win_figure">
+                    <canvas id="fan_graph"></canvas>
+                </div>
+            <?php } ?>
 
             <div class="item">
                 <?php for ($i = 34; $i <= 46; $i++) { ?>
+                    <?php if ($name == "全体" && $i >= 42 && $i <= 43) continue; ?>
+
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][0] ?></p>
                         <p class="param2"></p>
