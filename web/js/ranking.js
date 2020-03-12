@@ -19,36 +19,4 @@ const manClick = () => {
 
     member_block.style.display = "block";
     rank_block.style.display = "none";
-
-    checkMember();
-}
-
-const checkMember = () => {
-    let member = document.getElementsByClassName("name");
-    let no = document.getElementsByClassName("emoji");
-    let num = no.length;
-
-    const emoji = [
-        '😀', '😃', '😆', '😅', '🤣', '🙃', '😇', '🥰', '😍', '🤬',
-        '👻', '👺', '👹', '🤡', '👽', '👾', '🤖', '😤', '😡', '💀',
-        '😍', '🤩', '😘', '😗', '😚', '😋', '😛', '😜', '🤪', '😝',
-        '🤑', '🤗', '🤭', '🤫', '🤔', '🤐', '🤨', '😶', '🙄', '🤥',
-    ];
-
-    for(let i = 0; i < num; i++)
-    {
-        let hash = makeHash(member[i].textContent, emoji.length);
-        no[i].textContent = emoji[hash];
-    }
-}
-
-const makeHash = (name, range) => {
-    let sum = 0;
-
-    for(let i = 0; i < name.length; i++)
-    {
-        sum += name.charCodeAt(i);
-    }
-
-    return sum % range;
 }
