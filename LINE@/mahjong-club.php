@@ -92,6 +92,7 @@ if ($event_type == "follow" || $event_type == "join") {
         $message_text = $event->message->text;
 
         $dirname = "成績管理システム";
+        $rooturl = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname);
 
         // 使い方
         if ($message_text == "使い方") {
@@ -103,6 +104,7 @@ if ($event_type == "follow" || $event_type == "join") {
             $send_text .= "\n" . "(名前) 相性";
             $send_text .= "\n" . "使い方";
             $send_text .= "\n" . "ルール";
+            $send_text .= "\n" . "会員";
             $send_text .= "\n" . "大会 (番号)";
             $send_text .= "\n" . "相関";
             $send_text .= "\n" . "翻数";
@@ -123,7 +125,24 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // ルール
         if ($message_text == "ルール") {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("ルール") . ".txt?" . date("YmdHis");
+            $fname = $rooturl . "/" . urlencode("ルール") . ".txt?" . date("YmdHis");
+            $send_text = file_get_contents($fname);
+
+            if ($send_text) {
+                $messages = [
+                    [
+                        "type" => "text",
+                        "text" => $send_text
+                    ]
+                ];
+            }
+
+            goto send;
+        }
+
+        // 会員
+        if ($message_text == "会員") {
+            $fname = $rooturl . "/" . urlencode("会員") . ".txt?" . date("YmdHis");
             $send_text = file_get_contents($fname);
 
             if ($send_text) {
@@ -140,7 +159,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // 大会
         if (preg_match("/大会 ?(.+)/", $message_text, $code)) {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("大会") . "/" . $code[1] . "/" . urlencode("概要") . ".txt?" . date("YmdHis");
+            $fname = $rooturl . "/" . urlencode("大会") . "/" . $code[1] . "/" . urlencode("概要") . ".txt?" . date("YmdHis");
             $send_text = file_get_contents($fname);
 
             if ($send_text) {
@@ -157,7 +176,7 @@ if ($event_type == "follow" || $event_type == "join") {
 
         // 相関係数
         if ($message_text == "相関") {
-            $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
+            $fname = $rooturl . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
             $myfname = "record/ランキング.csv";
 
             if (file_get_contents($fname)) {
@@ -190,7 +209,7 @@ if ($event_type == "follow" || $event_type == "join") {
         }
 
         // 成績
-        $record = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/";
+        $record = $rooturl . "/" . urlencode("成績") . "/";
         $name = str_replace([" 役", " 局別", " 起家", " 相性", " 翻数", " 飜数"], "", $message_text);
         $fname = $record . urlencode($name) . ".csv?" . date("YmdHis");
         $graph_score = $record . urlencode($message_text) . "-Score.png?" . date("YmdHis");
@@ -381,7 +400,7 @@ send:
         ));
 
         // ランキング
-        $fname = "https://raw.githubusercontent.com/daicho/mahjong-club/master/" . urlencode($dirname) . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
+        $fname = $rooturl . "/" . urlencode("成績") . "/" . urlencode("ランキング") . ".csv?" . date("YmdHis");
         $myfname = "record/ランキング.csv";
 
         if (file_get_contents($fname)) {
