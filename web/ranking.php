@@ -86,14 +86,11 @@
                             }
                             ?>
                             <div class="indent"></div>
-                            <?php
-                            if("全体" != $data[$j][$i]) {
-                                $rank++;
-                            ?>
-                                <p class="rank_num"><?= $disprank ?></p>
-                            <?php } else {?>
-                                <p class="rank_totally"></p>
-                            <?php } ?>
+                            <div class="rank">
+                                <?php if("全体" != $data[$j][$i]) { $rank++; ?>
+                                    <p class="rank_num"><?= $disprank ?></p>
+                                <?php } ?>
+                            </div>
                             <p class="name"><?= $data[$j][$i] ?></p>
                             <p class="score"><?= $data[$j][$i + 1] ?></p>
                             <img class="arrow" src="/svg/arrow_trans.svg" alt="">
@@ -112,12 +109,40 @@
 
         <!-- 会員 -->
         <section id="member_block">
+        	<a class="name_block" href="/personal/全体">
+        	    <div class="icon"></div>
+                <p class="name">全体</p>
+                <img class="arrow" src="/svg/arrow_trans.svg" alt="">
+            </a>
+
             <?php for ($i = 0; $i < count($players); $i++) { ?>
-                <a class="name_block" href="/personal/<?= $players[$i] ?>">
-                    <img class="mjhai" src="/svg/mjhai/<?= iconhash($players[$i], MJHAI_NUM) ?>.svg" alt="">
-                    <p class="name"><?= $players[$i] ?></p>
-                    <img class="arrow" src="/svg/arrow_trans.svg" alt="">
-                </a>
+                <?php
+                $grade_exist = false;
+
+                for ($j = 2; $j < count($data); $j++) {
+                    if ($data[$j][1] == $players[$i]) {
+                        $grade_exist = true;
+                        break;
+                    }
+                }
+                ?>
+
+                <?php if ($grade_exist) { ?>
+                    <a class="name_block" href="/personal/<?= $players[$i] ?>">
+                        <div class="icon">
+                            <img class="mjhai" src="/svg/mjhai/<?= iconhash($players[$i], MJHAI_NUM) ?>.svg" alt="">
+                        </div>
+                        <p class="name"><?= $players[$i] ?></p>
+                        <img class="arrow" src="/svg/arrow_trans.svg" alt="">
+                    </a>
+                <?php } else { ?>
+                    <div class="name_block">
+                        <div class="icon">
+                            <img class="mjhai" src="/svg/mjhai/<?= iconhash($players[$i], MJHAI_NUM) ?>.svg" alt="">
+                        </div>
+                        <p class="name"><?= $players[$i] ?></p>
+                    </div>
+                <?php } ?>
             <?php } ?>
         </section>
 

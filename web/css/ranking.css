@@ -112,7 +112,7 @@
     display: block;
 }
 
-/*-------------------参加者の装飾---------------*/
+/*-------------------会員の装飾---------------*/
 #member_block
 {
     display: none;
@@ -126,18 +126,24 @@
     height: auto;
 }
 
+.icon
+{
+    width: 60px;
+    height: 32px;
+}
+
 .mjhai
 {
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;
-    margin-right: 11px;
+    margin-right: 0;
 
     width: auto;
     height: 32px;
     border: solid 1px #111926;
     border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #F9F6F4;
 }
 
 /*-------------------個人名の装飾---------------*/
@@ -168,30 +174,25 @@
     color:  #111926;
 }
 
-.rank_num 
+.rank
+{
+    width: 56px;
+    height: 31px;
+}
+
+.rank_num
 {
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;
-    margin-right: 11px;
+    margin-right: 0;
 
     width: 18px;
     height: 27px;
     border: solid 2px;
     border-radius: 5px;
     text-align: center;
-}
-
-.rank_totally 
-{
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 23px;
-    margin-right: 11px;
-
-    width: 22px;
-    height: 31px;
 }
 
 .name

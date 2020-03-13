@@ -52,9 +52,13 @@
         <h1 class="name"><?= $name ?></h1>
 
         <div class="switch_btn">
-            <div class="left_btn" onclick="leftClick()"></div>
+            <div class="left_btn" onclick="leftClick()">
+                <div class="left_btn_range"></div>
+            </div>
             <h2 class="grade_type">成績</h2>
-            <div class="right_btn" onclick="rightClick()"></div>
+            <div class="right_btn" onclick="rightClick()">
+                <div class="right_btn_range"></div>
+            </div>
         </div>
 
         <!-- 「成績」のセクション -->
@@ -168,9 +172,13 @@
         </section>
 
         <div class="switch_btn">
-            <div class="left_btn" onclick="leftClick()"></div>
+            <div class="left_btn" onclick="leftClick()">
+                <div class="left_btn_range"></div>
+            </div>
             <h2 class="grade_type">成績</h2>
-            <div class="right_btn" onclick="rightClick()"></div>
+            <div class="right_btn" onclick="rightClick()">
+                <div class="right_btn_range"></div>
+            </div>
         </div>
 
         <footer>
