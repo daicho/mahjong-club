@@ -126,21 +126,18 @@
     height: auto;
 }
 
-.emoji
+.mjhai
 {
-    /* display: block; */
-    font-family: "Segoe UI Emoji",
-                 "Segoe UI Symbol",
-                 "Apple Color Emoji",
-                 sans-serif;
-    font-size: 23px;
-
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;
     margin-right: 11px;
 
-    padding-top: 3px;
+    width: auto;
+    height: 32px;
+    border: solid 1px #111926;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /*-------------------個人名の装飾---------------*/
@@ -173,7 +170,7 @@
 
 .rank_num 
 {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 23px;

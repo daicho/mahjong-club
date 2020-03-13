@@ -1,5 +1,12 @@
 <?php
+    define('MJHAI_NUM', 34);
+
     require_once("FileReader.php");
+
+    // ハッシュ関数
+    function iconhash($string, $range) {
+        return hexdec(substr(md5($string), 0, 4)) % $range;
+    }
 
     session_start();
 
@@ -50,12 +57,12 @@
             <div class="line"></div>
 
             <div class="rank" onclick="rankClick()">
-                <img id="rank_img" src="svg/rank_fill.svg" alt="">
+                <img id="rank_img" src="/svg/rank_fill.svg" alt="">
                 <p>ランキング</p>
             </div>
 
             <div class="man" onclick="manClick()">
-                <img id="man_img" src="svg/man_frame.svg" alt="">
+                <img id="man_img" src="/svg/man_frame.svg" alt="">
                 <p>会員</p>
             </div>
         </div>
@@ -94,7 +101,7 @@
                     <?php } ?>
 
                     <label class="close" for="check<?= $index ?>">
-                        <img class="close_btn" src="svg/close.svg" alt="">
+                        <img class="close_btn" src="/svg/close.svg" alt="">
                         <p>閉じる</p>
                     </label>
                 </div>
@@ -107,9 +114,9 @@
         <section id="member_block">
             <?php for ($i = 0; $i < count($players); $i++) { ?>
                 <a class="name_block" href="/personal/<?= $players[$i] ?>">
-                    <p class="emoji"></p>
+                    <img class="mjhai" src="/svg/mjhai/<?= iconhash($players[$i], MJHAI_NUM) ?>.svg" alt="">
                     <p class="name"><?= $players[$i] ?></p>
-                    <img class="arrow" src="svg/arrow_trans.svg" alt="">
+                    <img class="arrow" src="/svg/arrow_trans.svg" alt="">
                 </a>
             <?php } ?>
         </section>

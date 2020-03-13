@@ -59,12 +59,16 @@
 
         <!-- 「成績」のセクション -->
         <section class="grade" id="grade"> 
-            <div class="figure" id="grade_figure">
-                <canvas id="score_graph"></canvas>
-            </div>
+            <?php if ($name != "全体") { ?>
+                <div class="figure" id="grade_figure">
+                    <canvas id="score_graph"></canvas>
+                </div>
+            <?php } ?>
 
             <div class="item">
                 <?php for ($i = 1; $i <= 31; $i++) { ?>
+                    <?php if ($name == "全体" && $i >= 27 && $i <= 28) continue; ?>
+
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][0] ?></p>
                         <p class="param2"></p>
