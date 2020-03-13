@@ -32,7 +32,6 @@
     background-color: #E3D3C6;
 
     transform: rotate(45deg);
-
     cursor: pointer;
 
 }
@@ -48,7 +47,7 @@
     border-bottom: solid 3px #111926;
     background-color: #E3D3C6;
 
-    transform: rotate(-45deg);
+    transform: rotate(315deg);
     cursor: pointer;
 }
 
@@ -60,6 +59,11 @@
 
 .left_btn_range
 {
+    position: relative;
+    top: 0px;
+    left: -15px;
+    right: 0px;
+    bottom: 0px;
     transform: rotate(45deg);
 }
 
@@ -174,9 +178,13 @@
 
 @media screen and (min-width:350px)and (max-width:400px) 
 {   
+    .each_item
+    {
+        height: 55px;
+    }
     .param1
     {
-        font-size: 14px;
+        font-size: 16px;
         width: 45%;
     }
 
