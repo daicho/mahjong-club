@@ -143,7 +143,7 @@ if ($event_type == "follow" || $event_type == "join") {
         // 会員
         if ($message_text == "会員") {
             $fname = $rooturl . "/" . urlencode("会員") . ".txt?" . date("YmdHis");
-            $send_text = file_get_contents($fname);
+            $send_text = mb_convert_encoding(file_get_contents($fname), "UTF-8", "SJIS-win");
 
             if ($send_text) {
                 $messages = [
