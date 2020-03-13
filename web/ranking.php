@@ -23,7 +23,7 @@
 
     $fileReader = new FileReader($root_dir);
     $data = $fileReader->loadCSV($seiseki_dir . urlencode("ランキング") . ".csv");
-    $players = $fileReader->loadLines($seiseki_dir . "Players.txt");
+    $players = $fileReader->loadLines($system_dir . urlencode("会員.txt"));
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +86,7 @@
                             }
                             ?>
                             <div class="indent"></div>
-                            <div class="rank">
+                            <div class="rank_icon">
                                 <?php if("全体" != $data[$j][$i]) { $rank++; ?>
                                     <p class="rank_num"><?= $disprank ?></p>
                                 <?php } ?>
