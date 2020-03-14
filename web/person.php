@@ -105,16 +105,12 @@
 
         <!-- 「アガリ翻数」のセクション -->
         <section class="grade" id="win"> 
-            <?php if ($name != "全体") { ?>
-                <div class="figure" id="win_figure">
-                    <canvas id="fan_graph"></canvas>
-                </div>
-            <?php } ?>
+            <div class="figure" id="win_figure">
+                <canvas id="fan_graph"></canvas>
+            </div>
 
             <div class="item">
                 <?php for ($i = 34; $i <= 46; $i++) { ?>
-                    <?php if ($name == "全体" && $i >= 42 && $i <= 43) continue; ?>
-
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][0] ?></p>
                         <p class="param2"></p>
@@ -186,37 +182,39 @@
         </footer>
 
         <script>
-            var ctxScore = document.getElementById("score_graph").getContext("2d");
-            var chartScore = new Chart(ctxScore, {
-                type: "line",
-                data: {
-                    labels: [
-                        <?php
-                        for ($i = 1; $i < count($data); $i++) {
-                            if ($data[$i][10] == "") break;
-                            echo "'" . $data[$i][10] . "', ";
-                        }
-                        ?>
-                    ],
-                    datasets: [{
-                        label: "スコア",
-                        data: [
+            <?php if ($name != "全体") { ?>
+                var ctxScore = document.getElementById("score_graph").getContext("2d");
+                var chartScore = new Chart(ctxScore, {
+                    type: "line",
+                    data: {
+                        labels: [
                             <?php
                             for ($i = 1; $i < count($data); $i++) {
                                 if ($data[$i][10] == "") break;
-                                echo str_replace("±", "", $data[$i][11]) . ", ";
+                                echo "'" . $data[$i][10] . "', ";
                             }
                             ?>
                         ],
-                        borderColor: "rgba(255, 99, 132, 1)",
-                        borderWidth: 4,
-                        lineTension: 0,
-                        fill: false,
-                        pointBackgroundColor: "rgba(0, 0, 0, 0)",
-                        pointBorderColor: "rgba(0, 0, 0, 0)"
-                    }]
-                }
-            });
+                        datasets: [{
+                            label: "スコア",
+                            data: [
+                                <?php
+                                for ($i = 1; $i < count($data); $i++) {
+                                    if ($data[$i][10] == "") break;
+                                    echo str_replace("±", "", $data[$i][11]) . ", ";
+                                }
+                                ?>
+                            ],
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            borderWidth: 4,
+                            lineTension: 0,
+                            fill: false,
+                            pointBackgroundColor: "rgba(0, 0, 0, 0)",
+                            pointBorderColor: "rgba(0, 0, 0, 0)"
+                        }]
+                    }
+                });
+            <?php } ?>
 
             let ctxFan = document.getElementById("fan_graph").getContext("2d");
             let chartFan  = new Chart(ctxFan, {
@@ -241,7 +239,7 @@
                             ?>
                         ],
                         borderColor: "rgba(255, 99, 132, 1)",
-                        backgroundColor:"rgba(255,99,132,0.3)",
+                        backgroundColor: "rgba(255, 99, 132, 0.3)",
                         borderWidth: 4,
                     }]
 
