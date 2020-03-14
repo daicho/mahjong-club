@@ -186,6 +186,51 @@
         </footer>
 
         <script>
+            //グラフ統一の設定
+            let options = {
+                responsive: true,
+                title:{ display:true,
+                    text:'Chart sample',
+                    position: 'bottom',
+                    fontColor: 'rgba(227, 211, 198, 1)',
+                    fontSize: 18,
+                },
+                chartArea: {
+                    backgroundColor: 'rgba(17, 25, 38, 1)'
+                },
+                legend: {display: false},
+                scales: {
+                    xAxes: [{ 
+                        gridLines:{
+                            display: false,
+                        },
+                        ticks: {  
+                            display: true,                   
+                            fontColor: "rgba(227, 211, 198, 1)",             
+                            fontSize: 18                  
+                        },
+                        categoryPercentage: 1.2,
+                    }],
+                    yAxes: [{ 
+                        gridLines: {   
+                            display: true,                
+                            drawBorder: false,
+                            color: "rgba(227, 211, 198, 1)", 
+                            zeroLineWidth: 1,
+                            zeroLineColor: 'rgba(227, 211, 198, 1)',
+                        },
+                        ticks: {
+                            display: true,
+                            fontColor: "rgba(227, 211, 198, 1)",             
+                            fontSize: 18                  
+                        }
+                    }]
+                },
+                chartArea: {
+                    backgroundColor: 'rgba(17, 25, 38, 1)'
+                },
+            };
+            options.title.text = 'スコアグラフ';
             var ctxScore = document.getElementById("score_graph").getContext("2d");
             var chartScore = new Chart(ctxScore, {
                 type: "line",
@@ -208,17 +253,22 @@
                             }
                             ?>
                         ],
-                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderColor: "rgba(226, 199, 85, 1)",
                         borderWidth: 4,
                         lineTension: 0,
                         fill: false,
                         pointBackgroundColor: "rgba(0, 0, 0, 0)",
                         pointBorderColor: "rgba(0, 0, 0, 0)"
                     }]
-                }
+                },
+                options: options
             });
-
+            options.title.text = 'あがり翻グラフ';
             let ctxFan = document.getElementById("fan_graph").getContext("2d");
+            let height = window.innerHeight || document.body.clientHeight;
+            let gradientStroke = ctxFan.createLinearGradient(0, 0, 0, height);
+            gradientStroke.addColorStop(0, 'rgba(226, 199, 85, 1)');
+            gradientStroke.addColorStop(0.3, 'rgba(0, 0, 0, 0)');
             let chartFan  = new Chart(ctxFan, {
                 type: "bar",
                 data:{
@@ -240,14 +290,16 @@
                             }
                             ?>
                         ],
-                        borderColor: "rgba(255, 99, 132, 1)",
-                        backgroundColor:"rgba(255,99,132,0.3)",
-                        borderWidth: 4,
+                        borderColor: "rgba(226, 199, 85, 1)",
+                        backgroundColor: gradientStroke,
+                        borderWidth: 2,
                     }]
 
-                }
+                },
+                options: options,
             });
         
+            options.title.text = '局別スコアグラフ';
             let ctxKyoku = document.getElementById("kyoku_graph").getContext("2d");
             let chartKyoku  = new Chart(ctxKyoku, {
                 type: "line",
@@ -270,7 +322,7 @@
                             }
                             ?>
                         ],
-                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderColor: "rgba(226, 199, 85, 1)",
                         borderWidth: 4,
                         lineTension: 0,
                         fill: false,
@@ -278,10 +330,14 @@
                         pointBorderColor: "rgba(0, 0, 0, 0)"
                     }]
 
-                }
+                },
+                options: options,
             });
         </script>
-
+        
+        <script>
+            
+        </script>
         <script type="text/javascript" src="/js/person.js"></script>
     </body>
 </html>

@@ -96,17 +96,19 @@
 .figure
 {
     color: #eacd53;
-
+    display: block;
+    position: relative;
     width: 100%;
     height: 58.9vw;
     max-height: 298px;
     background-color: #111926;
     border-radius: 10px;
     border: none;
-
     margin: 0 auto;
 }
-
+canvas {
+  border: 1px dotted red;
+}
 /*-------------------各成績項目統一の装飾---------------*/
 .item
 {
