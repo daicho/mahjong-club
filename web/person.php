@@ -243,5 +243,10 @@
 
         <script type="text/javascript" src="/js/graph.js"></script>
         <script type="text/javascript" src="/js/person.js"></script>
+
+        <script>
+            insertName(0);
+            changeDisp(0);
+        </script>
     </body>
 </html>

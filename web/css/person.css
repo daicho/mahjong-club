@@ -79,7 +79,7 @@
 }
 
 /*-------------------アクセス時だけの装飾---------------*/
-#role, #win, #kyokubetsu, #score, #aisho
+#grade, #role, #win, #kyokubetsu, #score, #aisho
 {
     display: none;
 }
