@@ -4,6 +4,13 @@ let grade_num = document.getElementsByClassName("grade");
 const grade_each = new Array("成績", "役", "アガリ翻数", "局別収支",
 "開始位置別スコア", "相性");
 
+// グラフ描画関数
+const graph_funcs = {
+    0: viewScoreGraph,
+    2: viewFanGraph,
+    3: viewKyokuGraph,
+}
+
 let type_num = 0;
 const max_num = 5;
 const min_num = 0;
@@ -34,4 +41,7 @@ const changeDisp = (num) => {
     {
         grade_num[i].style.display = (num == i) ? "block" : "none";
     }
+
+    if (graph_funcs[num])
+        graph_funcs[num]();
 }
