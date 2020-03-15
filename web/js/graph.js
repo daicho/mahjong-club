@@ -24,12 +24,13 @@ let options = {
                 drawBorder: false,
                 color: "rgb(227, 211, 198)",
                 zeroLineWidth: 1,
-                zeroLineColor: "rgb(227, 211, 198)",
+                zeroLineColor: "rgb(227, 211, 198)"
             },
             ticks: {
                 display: true,
                 fontColor: "rgb(227, 211, 198)",
-                fontSize: 18
+                fontSize: 18,
+                precision: 0
             }
         }]
     },
