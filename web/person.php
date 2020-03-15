@@ -65,7 +65,7 @@
         <section class="grade" id="grade"> 
             <?php if ($name != "全体") { ?>
                 <div class="figure" id="grade_figure">
-                    <canvas id="score_graph"></canvas>
+                    <canvas class="graph" id="score_graph" style="position: relative; width: 100%; height: 100%"></canvas>
                 </div>
             <?php } ?>
 
@@ -106,7 +106,7 @@
         <!-- 「アガリ翻数」のセクション -->
         <section class="grade" id="win"> 
             <div class="figure" id="win_figure">
-                <canvas id="fan_graph"></canvas>
+                <canvas class="graph" id="fan_graph" style="position: relative; width: 100%; height: 100%"></canvas>
             </div>
 
             <div class="item">
@@ -124,7 +124,7 @@
         <!-- 「局別収支」のセクション -->
         <section class="grade" id="kyokubetsu"> 
             <div class="figure" id="kyoku_figure">
-                <canvas id="kyoku_graph"></canvas>
+                <canvas class="graph" id="kyoku_graph" style="position: relative; width: 100%; height: 100%"></canvas>
             </div>
 
             <div class="item">
@@ -182,19 +182,20 @@
         </footer>
 
         <script>
-            //グラフ統一の設定
+            // グラフ統一の設定
             let options = {
                 responsive: true,
-                title:{ display:true,
-                    text:'Chart sample',
-                    position: 'bottom',
-                    fontColor: 'rgba(227, 211, 198, 1)',
+                title: {
+                    display: true,
+                    text: "Chart sample",
+                    position: "bottom",
+                    fontColor: "rgba(227, 211, 198, 1)",
                     fontSize: 18,
                 },
                 chartArea: {
-                    backgroundColor: 'rgba(17, 25, 38, 1)'
+                    backgroundColor: "rgba(17, 25, 38, 1)"
                 },
-                legend: {display: false},
+                legend: { display: false },
                 scales: {
                     xAxes: [{ 
                         gridLines:{
@@ -205,7 +206,6 @@
                             fontColor: "rgba(227, 211, 198, 1)",             
                             fontSize: 18                  
                         },
-                        categoryPercentage: 1.2,
                     }],
                     yAxes: [{ 
                         gridLines: {   
@@ -223,14 +223,14 @@
                     }]
                 },
                 chartArea: {
-                    backgroundColor: 'rgba(17, 25, 38, 1)'
+                    backgroundColor: "rgba(17, 25, 38, 1)"
                 },
             };
 
             <?php if ($name != "全体") { ?>
-                options.title.text = 'スコアグラフ'
-                var ctxScore = document.getElementById("score_graph").getContext("2d");
-                var chartScore = new Chart(ctxScore, {
+                options.title.text = "通算スコア"
+                let ctxScore = document.getElementById("score_graph").getContext("2d");
+                let chartScore = new Chart(ctxScore, {
                     type: "line",
                     data: {
                         labels: [
@@ -259,7 +259,7 @@
                             pointBorderColor: "rgba(0, 0, 0, 0)"
                         }]
                     },
-                    options:options
+                    options: options,
                 });
             <?php } ?>
 
@@ -268,7 +268,7 @@
             let gradientStroke = ctxFan.createLinearGradient(0, 0, 0, height);
             gradientStroke.addColorStop(0, 'rgba(226, 199, 85, 1)');
             gradientStroke.addColorStop(0.3, 'rgba(0, 0, 0, 0)');
-            options.title.text = 'あがり翻グラフ';
+            options.title.text = "あがり翻数";
             let chartFan  = new Chart(ctxFan, {
                 type: "bar",
                 data:{
@@ -293,17 +293,18 @@
                         borderColor: "rgba(226, 199, 85, 1)",
                         backgroundColor: gradientStroke,
                         borderWidth: 2,
+                        categoryPercentage: 1.2,
                     }]
 
                 },
                 options: options,
             });
         
-            options.title.text = '局別スコアグラフ';
+            options.title.text = "局別収支";
             let ctxKyoku = document.getElementById("kyoku_graph").getContext("2d");
             let chartKyoku  = new Chart(ctxKyoku, {
                 type: "line",
-                data:{
+                data: {
                     labels: [
                         <?php
                         for ($i = 1; $i < count($data); $i++) {
@@ -313,7 +314,7 @@
                         ?>
                     ],
                     datasets: [{
-                        label: "局別スコア",
+                        label: "局別収支",
                         data: [
                             <?php
                             for ($i = 1; $i < count($data); $i++) {
@@ -334,10 +335,7 @@
                 options: options,
             });
         </script>
-        
-        <script>
-            
-        </script>
+
         <script type="text/javascript" src="/js/person.js"></script>
     </body>
 </html>

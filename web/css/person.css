@@ -106,9 +106,11 @@
     border: none;
     margin: 0 auto;
 }
-canvas {
-  border: 1px dotted red;
+
+.graph {
+     border: 1px dotted red;
 }
+
 /*-------------------各成績項目統一の装飾---------------*/
 .item
 {
