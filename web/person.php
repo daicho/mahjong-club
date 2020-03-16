@@ -63,11 +63,9 @@
 
         <!-- 「成績」のセクション -->
         <section class="grade" id="grade">
-            <?php if ($name != "全体") { ?>
-                <div class="figure" id="grade_figure">
-                    <canvas id="score_graph" style="width: 100%; height: 100%"></canvas>
-                </div>
-            <?php } ?>
+            <div class="figure" id="grade_figure">
+                <canvas id="score_graph" style="width: 100%; height: 100%"></canvas>
+            </div>
 
             <div class="item">
                 <?php for ($i = 1; $i <= 31; $i++) { ?>
@@ -76,7 +74,7 @@
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][0] ?></p>
                         <p class="param2"></p>
-                        <p class="param3"><?= $data[$i][1] ?></p>
+                        <p class="param3"><?= ($name == "全体" && $i >= 1 && $i <= 2) ? $data[$i][1] / 4 : $data[$i][1] ?></p>
                         <p class="param4"><?= ($i >= 23 && $i <= 28) ? "" : $data[$i][2] ?></p>
                     </div>
                 <?php } ?>
@@ -186,9 +184,16 @@
             // 通算スコア
             dataScore = [
                 <?php
-                for ($i = 1; $i < count($data); $i++) {
-                    if ($data[$i][10] == "") break;
-                    echo "{ x: " . $data[$i][10] . ", y: " . str_replace("±", "", $data[$i][11]) . " }, ";
+                if ($name == "全体") {
+                    for ($i = 1; $i < count($data); $i += 4) {
+                        if ($data[$i][10] == "") break;
+                        echo "{ x: " . $data[$i][10] / 4 . ", y: " . str_replace("±", "", $data[$i][11]) . " }, ";
+                    }
+                } else {
+                    for ($i = 1; $i < count($data); $i++) {
+                        if ($data[$i][10] == "") break;
+                        echo "{ x: " . $data[$i][10] . ", y: " . str_replace("±", "", $data[$i][11]) . " }, ";
+                    }
                 }
                 ?>
             ];

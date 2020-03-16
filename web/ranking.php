@@ -81,10 +81,8 @@
                     <?php $rank = 1; $disprank = 1; ?>
                     <?php for ($j = 2; $j < count($data); $j++) { ?>
                         <a class="name_block" href="/personal/<?= $data[$j][$i] ?>">
-                            <?php if($data[$j][$i + 1] != $data[$j - 1][$i + 1]) { 
-                                $disprank = $rank;
-                            }
-                            ?>
+                            <?php if($data[$j][$i + 1] != $data[$j - 1][$i + 1]) $disprank = $rank; ?>
+
                             <div class="indent"></div>
                             <div class="rank_icon">
                                 <?php if("全体" != $data[$j][$i]) { $rank++; ?>
