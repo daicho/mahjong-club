@@ -21,7 +21,8 @@ let options = {
                 display: true,
                 labelString: "",
                 fontColor: "rgb(227, 211, 198)",
-                fontSize: 14
+                fontSize: 14,
+                padding: 2
             }
         }],
         yAxes: [{
