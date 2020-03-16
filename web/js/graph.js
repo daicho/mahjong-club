@@ -16,6 +16,12 @@ let options = {
                 display: true,
                 fontColor: "rgb(227, 211, 198)",
                 fontSize: 14
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "",
+                fontColor: "rgb(227, 211, 198)",
+                fontSize: 14
             }
         }],
         yAxes: [{
@@ -38,6 +44,13 @@ let options = {
                 major: {
                     display: false
                 },
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "",
+                fontColor: "rgb(227, 211, 198)",
+                fontSize: 14,
+                padding: 2
             }
         }]
     },
@@ -59,7 +72,11 @@ Chart.defaults.global.defaultFontFamily = "a-otf-midashi-go-mb31-pr6n, sans-seri
 
 // 通算スコア
 const viewScoreGraph = () => {
-    // 軸の書式設定
+    // 軸の設定
+    options.scales.xAxes[0].scaleLabel.display = true;
+    options.scales.xAxes[0].scaleLabel.labelString = "対戦数 (回)";
+    options.scales.yAxes[0].scaleLabel.labelString = "スコア (pt)";
+
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
             return "±0 ";
@@ -90,7 +107,11 @@ const viewScoreGraph = () => {
 
 // アガリ翻数
 const viewFanGraph = () => {
-    // 軸の書式設定
+    // 軸の設定
+    options.scales.xAxes[0].scaleLabel.display = true;
+    options.scales.xAxes[0].scaleLabel.labelString = "翻数 (翻)";
+    options.scales.yAxes[0].scaleLabel.labelString = "出現数 (回)";
+
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         return value + " ";
     };
@@ -122,7 +143,10 @@ const viewFanGraph = () => {
 
 // 局別収支
 const viewKyokuGraph = () => {
-    // 軸の書式設定
+    // 軸の設定
+    options.scales.xAxes[0].scaleLabel.display = false;
+    options.scales.yAxes[0].scaleLabel.labelString = "収支 (点)";
+
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
             return "±0 ";
