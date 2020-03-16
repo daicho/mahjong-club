@@ -107,7 +107,7 @@ const viewFanGraph = () => {
                 label: "出現回数",
                 data: dataFan,
                 borderColor: "rgb(226, 199, 85)",
-                backgroundColor: gradientStroke,
+                backgroundColor: gradientStrokes,
                 borderWidth: 3,
                 categoryPercentage: 1.2
             }]
