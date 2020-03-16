@@ -184,20 +184,29 @@
         <!-- グラフのデータ -->
         <script>
             // 通算スコア
-            labelScore = [
-                <?php
-                for ($i = 1; $i < count($data); $i++) {
-                    if ($data[$i][10] == "") break;
-                    echo "'" . $data[$i][10] . "', ";
-                }
-                ?>
-            ];
+            // labelScore = [
+            //     <?php
+            //     for ($i = 1; $i < count($data); $i++) {
+            //         if ($data[$i][10] == "") break;
+            //         echo "'" . $data[$i][10] . "', ";
+            //     }
+            //     ?>
+            // ];
+
+            // dataScore = [
+            //     <?php
+            //     for ($i = 1; $i < count($data); $i++) {
+            //         if ($data[$i][10] == "") break;
+            //         echo str_replace("±", "", $data[$i][11]) . ", ";
+            //     }
+            //     ?>
+            // ];
 
             dataScore = [
                 <?php
                 for ($i = 1; $i < count($data); $i++) {
                     if ($data[$i][10] == "") break;
-                    echo str_replace("±", "", $data[$i][11]) . ", ";
+                    echo "{ x: " . $data[$i][10] . ", y: " . str_replace("±", "", $data[$i][11]) . " }, ";
                 }
                 ?>
             ];

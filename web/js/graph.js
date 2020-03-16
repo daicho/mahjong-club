@@ -41,14 +41,24 @@ let options = {
 
 // 通算スコア
 const viewScoreGraph = () => {
+    // 軸の書式設定
+    options.scales.yAxes[0].ticks.callback = (value, index, values) => {
+        if (value == 0)
+            return "±0";
+        else if (value > 0)
+            return "+" + value;
+        else
+            return value;
+    };
+
     let ctxScore = document.getElementById("score_graph").getContext("2d");
     let chartScore = new Chart(ctxScore, {
-        type: "line",
+        type: "scatter",
         data: {
-            labels: labelScore,
             datasets: [{
                 label: "スコア",
                 data: dataScore,
+                showLine: true,
                 borderColor: "rgb(226, 199, 85)",
                 borderWidth: 4,
                 lineTension: 0,
