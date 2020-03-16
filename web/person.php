@@ -74,7 +74,13 @@
                     <div class="each_item">
                         <p class="param1"><?= $data[$i][0] ?></p>
                         <p class="param2"></p>
-                        <p class="param3"><?= ($name == "全体" && $i >= 1 && $i <= 2) ? $data[$i][1] / 4 : $data[$i][1] ?></p>
+
+                        <?php if ($name == "全体" && $i >= 1 && $i <= 2) { ?>
+                            <p class="param3"><?= (int)$data[$i][1] / 4 . " 回" ?></p>
+                        <?php } else { ?>
+                            <p class="param3"><?= $data[$i][1] ?></p>
+                        <?php } ?>
+
                         <p class="param4"><?= ($i >= 23 && $i <= 28) ? "" : $data[$i][2] ?></p>
                     </div>
                 <?php } ?>
