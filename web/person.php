@@ -64,7 +64,7 @@
         <!-- 「成績」のセクション -->
         <section class="grade" id="grade">
             <div class="figure" id="grade_figure">
-                <canvas id="score_graph" style="width: 100%; height: 95%"></canvas>
+                <canvas id="score_graph" style="width: 100%; height: 100%"></canvas>
             </div>
 
             <div class="item">
@@ -104,7 +104,7 @@
         <!-- 「アガリ翻数」のセクション -->
         <section class="grade" id="win">
             <div class="figure" id="win_figure">
-                <canvas id="fan_graph" style="width: 100%; height: 95%"></canvas>
+                <canvas id="fan_graph" style="width: 100%; height: 100%"></canvas>
             </div>
 
             <div class="item">
@@ -122,7 +122,7 @@
         <!-- 「局別収支」のセクション -->
         <section class="grade" id="kyokubetsu">
             <div class="figure" id="kyoku_figure">
-                <canvas id="kyoku_graph" style="width: 100%; height: 95%"></canvas>
+                <canvas id="kyoku_graph" style="width: 100%; height: 100%"></canvas>
             </div>
 
             <div class="item">

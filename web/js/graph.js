@@ -1,5 +1,5 @@
 // グラフ統一の設定
-let option = {
+let options = {
     responsive: true,
     chartArea: {
         backgroundColor: "rgb(17, 25, 38)"
@@ -44,6 +44,14 @@ let option = {
     chartArea: {
         backgroundColor: "rgb(17, 25, 38)"
     },
+    layout: {
+        padding: {
+            left: 5,
+            right: 20,
+            top: 20,
+            bottom: 5
+        }
+    }
 };
 
 // フォント設定
@@ -52,7 +60,7 @@ Chart.defaults.global.defaultFontFamily = "a-otf-midashi-go-mb31-pr6n, sans-seri
 // 通算スコア
 const viewScoreGraph = () => {
     // 軸の書式設定
-    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+    options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
             return "±0 ";
         else if (value > 0)
@@ -76,14 +84,14 @@ const viewScoreGraph = () => {
                 pointRadius: 0,
             }]
         },
-        options: option
+        options: options
     });
 }
 
 // アガリ翻数
 const viewFanGraph = () => {
     // 軸の書式設定
-    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+    options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         return value + " ";
     };
 
@@ -108,14 +116,14 @@ const viewFanGraph = () => {
                 categoryPercentage: 1.2
             }]
         },
-        options: option
+        options: options
     });
 }
 
 // 局別収支
 const viewKyokuGraph = () => {
     // 軸の書式設定
-    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+    options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
             return "±0 ";
         else if (value > 0)
@@ -141,6 +149,6 @@ const viewKyokuGraph = () => {
                 pointBorderWidth: 0
             }]
         },
-        options: option
+        options: options
     });
 }
