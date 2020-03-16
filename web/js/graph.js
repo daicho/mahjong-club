@@ -39,12 +39,7 @@ let options = {
                 fontColor: "rgb(227, 211, 198)",
                 fontSize: 14,
                 precision: 0,
-                minor: {
-                    display: false
-                },
-                major: {
-                    display: false
-                },
+                padding: 10
             },
             scaleLabel: {
                 display: true,
@@ -80,11 +75,11 @@ const viewScoreGraph = () => {
 
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
-            return "±0 ";
+            return "±0";
         else if (value > 0)
-            return "+" + value + " ";
+            return "+" + value;
         else
-            return value + " ";
+            return value;
     };
 
     let ctxScore = document.getElementById("score_graph").getContext("2d");
@@ -114,7 +109,7 @@ const viewFanGraph = () => {
     options.scales.yAxes[0].scaleLabel.labelString = "回数 (回)";
 
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
-        return value + " ";
+        return value;
     };
 
     let ctxFan = document.getElementById("fan_graph").getContext("2d");
@@ -150,11 +145,11 @@ const viewKyokuGraph = () => {
 
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         if (value == 0)
-            return "±0 ";
+            return "±0";
         else if (value > 0)
-            return "+" + value + " ";
+            return "+" + value;
         else
-            return value + " ";
+            return value;
     };
 
     let ctxKyoku = document.getElementById("kyoku_graph").getContext("2d");
