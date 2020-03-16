@@ -16,21 +16,28 @@ let option = {
                 display: true,
                 fontColor: "rgb(227, 211, 198)",
                 fontSize: 14
-            },
+            }
         }],
         yAxes: [{
             gridLines: {
                 display: true,
                 drawBorder: false,
                 color: "rgb(227, 211, 198)",
-                zeroLineWidth: 1,
+                zeroLineWidth: 3,
                 zeroLineColor: "rgb(227, 211, 198)"
             },
             ticks: {
                 display: true,
+                beginAtZero: true,
                 fontColor: "rgb(227, 211, 198)",
                 fontSize: 14,
-                precision: 0
+                precision: 0,
+                minor: {
+                    display: false
+                },
+                major: {
+                    display: false
+                },
             }
         }]
     },
@@ -40,7 +47,7 @@ let option = {
 };
 
 // フォント設定
-Chart.defaults.global.defaultFontFamily = "'a-otf-midashi-go-mb31-pr6n', 'sans-serif'";
+Chart.defaults.global.defaultFontFamily = "a-otf-midashi-go-mb31-pr6n, sans-serif";
 
 // 通算スコア
 const viewScoreGraph = () => {
@@ -97,7 +104,7 @@ const viewFanGraph = () => {
                 data: dataFan,
                 borderColor: "rgb(226, 199, 85)",
                 backgroundColor: gradientStroke,
-                borderWidth: 2,
+                borderWidth: 3,
                 categoryPercentage: 1.2
             }]
         },
