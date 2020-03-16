@@ -1,5 +1,5 @@
 // グラフ統一の設定
-let options = {
+let option = {
     responsive: true,
     chartArea: {
         backgroundColor: "rgb(17, 25, 38)"
@@ -39,18 +39,19 @@ let options = {
     },
 };
 
+// 軸の書式設定
+optionScore = JSON.parse(JSON.stringify(option));
+optionScore.scales.yAxes[0].ticks.callback = (value, index, values) => {
+    if (value == 0)
+        return "±0";
+    else if (value > 0)
+        return "+" + value;
+    else
+        return value;
+};
+
 // 通算スコア
 const viewScoreGraph = () => {
-    // 軸の書式設定
-    options.scales.yAxes[0].ticks.callback = (value, index, values) => {
-        if (value == 0)
-            return "±0";
-        else if (value > 0)
-            return "+" + value;
-        else
-            return value;
-    };
-
     let ctxScore = document.getElementById("score_graph").getContext("2d");
     let chartScore = new Chart(ctxScore, {
         type: "scatter",
@@ -66,7 +67,7 @@ const viewScoreGraph = () => {
                 pointRadius: 0,
             }]
         },
-        options: options
+        options: optionScore
     });
 }
 
@@ -93,12 +94,13 @@ const viewFanGraph = () => {
                 categoryPercentage: 1.2
             }]
         },
-        options: options
+        options: option
     });
 }
 
 // 局別収支
 const viewKyokuGraph = () => {
+    // 軸の書式設定
     let ctxKyoku = document.getElementById("kyoku_graph").getContext("2d");
     let chartKyoku = new Chart(ctxKyoku, {
         type: "line",
@@ -116,6 +118,6 @@ const viewKyokuGraph = () => {
                 pointBorderWidth: 0
             }]
         },
-        options: options
+        options: optionScore
     });
 }

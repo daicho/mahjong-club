@@ -184,24 +184,6 @@
         <!-- グラフのデータ -->
         <script>
             // 通算スコア
-            // labelScore = [
-            //     <?php
-            //     for ($i = 1; $i < count($data); $i++) {
-            //         if ($data[$i][10] == "") break;
-            //         echo "'" . $data[$i][10] . "', ";
-            //     }
-            //     ?>
-            // ];
-
-            // dataScore = [
-            //     <?php
-            //     for ($i = 1; $i < count($data); $i++) {
-            //         if ($data[$i][10] == "") break;
-            //         echo str_replace("±", "", $data[$i][11]) . ", ";
-            //     }
-            //     ?>
-            // ];
-
             dataScore = [
                 <?php
                 for ($i = 1; $i < count($data); $i++) {
@@ -216,7 +198,7 @@
                 <?php
                 for ($i = 34; $i < count($data); $i++) {
                     if ($data[$i][0] == "") break;
-                    echo "'" . $data[$i][0] . "', ";
+                    echo "'" . str_replace("翻", "", $data[$i][0]) . "', ";
                 }
                 ?>
             ];
@@ -235,7 +217,7 @@
                 <?php
                 for ($i = 1; $i < count($data); $i++) {
                     if ($data[$i][13] == "") break;
-                    echo "'" . $data[$i][13] . "', ";
+                    echo "'" . str_replace("局", "", $data[$i][13]) . "', ";
                 }
                 ?>
             ];
