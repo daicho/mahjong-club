@@ -198,7 +198,7 @@
                 <?php
                 for ($i = 34; $i < count($data); $i++) {
                     if ($data[$i][0] == "") break;
-                    echo "'" . str_replace("翻", "", $data[$i][0]) . "', ";
+                    echo "'" . $data[$i][0] . "', ";
                 }
                 ?>
             ];
@@ -217,7 +217,7 @@
                 <?php
                 for ($i = 1; $i < count($data); $i++) {
                     if ($data[$i][13] == "") break;
-                    echo "'" . str_replace("局", "", $data[$i][13]) . "', ";
+                    echo "'" . $data[$i][13] . "', ";
                 }
                 ?>
             ];

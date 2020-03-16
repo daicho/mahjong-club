@@ -15,7 +15,7 @@ let option = {
             ticks: {
                 display: true,
                 fontColor: "rgb(227, 211, 198)",
-                fontSize: 18
+                fontSize: 14
             },
         }],
         yAxes: [{
@@ -29,7 +29,7 @@ let option = {
             ticks: {
                 display: true,
                 fontColor: "rgb(227, 211, 198)",
-                fontSize: 18,
+                fontSize: 14,
                 precision: 0
             }
         }]
@@ -39,19 +39,21 @@ let option = {
     },
 };
 
-// 軸の書式設定
-optionScore = JSON.parse(JSON.stringify(option));
-optionScore.scales.yAxes[0].ticks.callback = (value, index, values) => {
-    if (value == 0)
-        return "±0";
-    else if (value > 0)
-        return "+" + value;
-    else
-        return value;
-};
+// フォント設定
+Chart.defaults.global.defaultFontFamily = "'a-otf-midashi-go-mb31-pr6n', 'sans-serif'";
 
 // 通算スコア
 const viewScoreGraph = () => {
+    // 軸の書式設定
+    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+        if (value == 0)
+            return "±0 ";
+        else if (value > 0)
+            return "+" + value + " ";
+        else
+            return value + " ";
+    };
+
     let ctxScore = document.getElementById("score_graph").getContext("2d");
     let chartScore = new Chart(ctxScore, {
         type: "scatter",
@@ -67,12 +69,17 @@ const viewScoreGraph = () => {
                 pointRadius: 0,
             }]
         },
-        options: optionScore
+        options: option
     });
 }
 
 // アガリ翻数
 const viewFanGraph = () => {
+    // 軸の書式設定
+    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+        return value + " ";
+    };
+
     let ctxFan = document.getElementById("fan_graph").getContext("2d");
 
     // グラデーション作成
@@ -101,6 +108,15 @@ const viewFanGraph = () => {
 // 局別収支
 const viewKyokuGraph = () => {
     // 軸の書式設定
+    option.scales.yAxes[0].ticks.callback = (value, index, values) => {
+        if (value == 0)
+            return "±0 ";
+        else if (value > 0)
+            return "+" + value + " ";
+        else
+            return value + " ";
+    };
+
     let ctxKyoku = document.getElementById("kyoku_graph").getContext("2d");
     let chartKyoku = new Chart(ctxKyoku, {
         type: "line",
@@ -118,6 +134,6 @@ const viewKyokuGraph = () => {
                 pointBorderWidth: 0
             }]
         },
-        options: optionScore
+        options: option
     });
 }
