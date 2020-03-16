@@ -110,7 +110,7 @@ const viewFanGraph = () => {
     // 軸の設定
     options.scales.xAxes[0].scaleLabel.display = true;
     options.scales.xAxes[0].scaleLabel.labelString = "翻数 (翻)";
-    options.scales.yAxes[0].scaleLabel.labelString = "出現数 (回)";
+    options.scales.yAxes[0].scaleLabel.labelString = "回数 (回)";
 
     options.scales.yAxes[0].ticks.callback = (value, index, values) => {
         return value + " ";
@@ -129,7 +129,7 @@ const viewFanGraph = () => {
         data:{
             labels: labelFan,
             datasets: [{
-                label: "出現回数",
+                label: "回数",
                 data: dataFan,
                 borderColor: "rgb(226, 199, 85)",
                 backgroundColor: gradientStroke,
