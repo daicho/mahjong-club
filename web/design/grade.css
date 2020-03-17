@@ -147,7 +147,6 @@
     .param2, .param3
     {
         width: calc((100% - 45%) / 3);
-        /* width: calc((100 - 45%) / 3); */
         font-size: 16px;
         text-align: right;
     }
@@ -170,11 +169,6 @@
     {
         width: 15%;
     }
-
-    /* #role .param3
-    {
-        padding-left: 4%;
-    } */
 }
 
 @media screen and (min-width:350px)and (max-width:400px) 
