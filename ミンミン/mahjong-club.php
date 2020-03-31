@@ -29,10 +29,19 @@ $event = $line_obj->events[0];
 $event_type = $event->type;
 $replytoken = $event->replyToken;
 
-if (is_null($event->source->groupId))
-    $source_id = $event->source->userId;
-else
-    $source_id = $event->source->groupId;
+switch ($event->source->type) {
+    case "group":
+        $source_id = $event->source->groupId;
+        break;
+
+    case "room":
+        $source_id = $event->source->roomId;
+        break;
+
+    default:
+        $source_id = $event->source->userId;
+        break;
+}
 
 /*
 $post_data = [
@@ -365,6 +374,8 @@ if ($event_type == "follow" || $event_type == "join") {
                     "previewImageUrl" => $graph_fan
                 ];
             }
+
+            goto send;
         }
 
 send:
